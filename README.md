@@ -33,3 +33,13 @@ tests/                    regression tests for the matching pipeline
 ```bash
 python -m unittest discover -s tests
 ```
+
+## Analysis and architecture
+
+Development and subsequent revisions continue on the `demoVer-1` branch.
+
+- [Step 1: dataset and requirements audit](docs/hackalem_step1_audit.md)
+- [Step 2: MVP architecture and implementation priorities](docs/hackalem_step2_architecture.md)
+- [Verified demo scenarios](docs/hackalem_demo_scenarios.md)
+
+These documents record the analysis at the commits stated inside them; they do not claim that the planned MVP is already implemented.
