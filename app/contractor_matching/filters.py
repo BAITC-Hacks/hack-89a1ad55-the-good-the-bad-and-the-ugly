@@ -1,51 +1,59 @@
+"""Pure hard filters; every excluded pool member has exactly one first reason."""
 from __future__ import annotations
 
 from dataclasses import dataclass
 from typing import Iterable
 
-from .models import Contractor, MatchQuery
+from .models import ContractorProfile, RejectionStats, SearchOutcome, SearchRequest
+
+REASON_ORDER = ("busy", "budget", "format", "duration", "language")
 
 
 @dataclass(frozen=True)
-class EligibilityResult:
-    contractor: Contractor
-    eligible: bool
-    reasons: tuple[str, ...] = ()
+class FilterResult:
+    outcome: SearchOutcome
+    message: str
+    survivors: list[ContractorProfile]
+    stats: RejectionStats
+    pool_count: int
+    rejected_by_id: dict[str, str]
 
 
-def rejection_reasons(contractor: Contractor, query: MatchQuery) -> tuple[str, ...]:
-    reasons: list[str] = []
-
-    if contractor.city.casefold() != query.city.casefold():
-        reasons.append("city_mismatch")
-    if query.category.casefold() not in {category.casefold() for category in contractor.categories}:
-        reasons.append("category_mismatch")
-    if query.event_format.casefold() not in {fmt.casefold() for fmt in contractor.event_formats}:
-        reasons.append("format_mismatch")
-    if contractor.price_from_kzt > query.budget_kzt:
-        reasons.append("over_budget")
-    if contractor.max_guests < query.guest_count:
-        reasons.append("insufficient_capacity")
-    if query.event_date in contractor.busy_dates:
-        reasons.append("busy_on_event_date")
-
-    return tuple(reasons)
+def first_rejection_reason(profile: ContractorProfile, request: SearchRequest) -> str | None:
+    if request.date in profile.busy_dates:
+        return "busy"
+    if profile.price_from_kzt > request.budget:
+        return "budget"
+    if request.event_format not in profile.event_formats:
+        return "format"
+    if request.duration is not None and profile.max_hours is not None and request.duration > profile.max_hours:
+        return "duration"
+    if request.language is not None and request.language not in profile.languages:
+        return "language"
+    return None
 
 
-def is_eligible(contractor: Contractor, query: MatchQuery) -> bool:
-    return not rejection_reasons(contractor, query)
-
-
-def filter_eligible_contractors(
-    contractors: Iterable[Contractor],
-    query: MatchQuery,
-) -> list[EligibilityResult]:
-    results = [
-        EligibilityResult(
-            contractor=contractor,
-            eligible=not (reasons := rejection_reasons(contractor, query)),
-            reasons=reasons,
+def filter_contractors(profiles: Iterable[ContractorProfile], request: SearchRequest) -> FilterResult:
+    pool = sorted(
+        (profile for profile in profiles if profile.city == request.city and request.category in profile.categories),
+        key=lambda profile: profile.id,
+    )
+    stats = RejectionStats()
+    if not pool:
+        return FilterResult(
+            SearchOutcome.NO_CATEGORY_IN_CITY,
+            "В выбранном городе нет подрядчиков этой категории.", [], stats, 0, {},
         )
-        for contractor in contractors
-    ]
-    return [result for result in results if result.eligible]
+    survivors: list[ContractorProfile] = []
+    rejected_by_id: dict[str, str] = {}
+    for profile in pool:
+        reason = first_rejection_reason(profile, request)
+        if reason is None:
+            survivors.append(profile)
+        else:
+            rejected_by_id[profile.id] = reason
+            setattr(stats, reason, getattr(stats, reason) + 1)
+    assert stats.total() == len(pool) - len(survivors)
+    outcome = SearchOutcome.SUCCESS if survivors else SearchOutcome.ALL_FILTERED_OUT
+    message = "Подрядчики найдены." if survivors else "Все подрядчики этой категории в городе исключены условиями поиска."
+    return FilterResult(outcome, message, survivors, stats, len(pool), rejected_by_id)

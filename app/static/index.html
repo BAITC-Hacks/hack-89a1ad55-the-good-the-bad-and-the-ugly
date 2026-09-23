@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173e39">
+  <meta name="description" content="Умный подбор подрядчиков для мероприятий: точные условия, до трёх кандидатов и объяснения на основе фактов.">
+  <title>Событие — умный подбор подрядчиков</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%23173e39'/%3E%3Cpath d='M20 8v24M8 20h24M12 12l16 16M12 28l16-16' stroke='%23dcecaa' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#search-form">Перейти к подбору</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="Событие — главная">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M20 7v26M7 20h26M10.8 10.8l18.4 18.4M10.8 29.2l18.4-18.4" stroke="currentColor" stroke-width="3"/></svg></span>
+        <span>событие<span class="brand-dot">.</span></span>
+      </a>
+      <div class="header-caption">Люди и места для ваших событий</div>
+      <span class="hackathon-tag"><span aria-hidden="true"></span> HackAlem AI</span>
+    </div>
+  </header>
+  <main class="shell">
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Меньше поиска. Больше совпадений.</p>
+        <h1 id="page-title">Ваше событие.<br><span>Подходящая команда.</span></h1>
+        <p class="intro-copy">Задайте условия — получите до трёх кандидатов<br class="desktop-break"> с понятным объяснением, почему они вам подходят.</p>
+      </div>
+      <div class="catalog-overview" aria-label="О каталоге">
+        <div class="catalog-main"><strong id="catalog-total">—</strong><span>профилей<br>в одном каталоге</span></div>
+        <div class="catalog-bottom"><span><b id="catalog-cities">3</b> города</span><span><b id="catalog-categories">17</b> категорий</span></div>
+        <span class="catalog-note">Анонимизированные данные хакатона</span>
+      </div>
+    </section>
+
+    <section class="preset-section" aria-labelledby="presets-label">
+      <span id="presets-label" class="small-label">Попробуйте сценарий</span>
+      <div id="presets" class="presets"><span class="muted">Загружаем сценарии…</span></div>
+    </section>
+
+    <div class="workspace">
+      <aside class="search-panel" aria-labelledby="form-title">
+        <div class="panel-heading"><span class="step-label">01 / Условия</span><h2 id="form-title">Что планируете?</h2><p>Начнём с главного.</p></div>
+        <form id="search-form">
+          <div class="field"><label for="city">Город</label><select id="city" name="city" required disabled></select></div>
+          <div class="field"><label for="date">Дата события</label><input id="date" name="date" type="date" required disabled><span id="date-hint" class="field-hint"></span></div>
+          <div class="field"><label for="event_format">Формат мероприятия</label><select id="event_format" name="event_format" required disabled></select></div>
+          <div class="field"><label for="category">Кого ищем</label><select id="category" name="category" required disabled></select></div>
+          <div class="field"><label for="budget">Бюджет на подрядчика</label><div class="input-suffix"><input id="budget" name="budget" type="number" min="1" step="any" inputmode="decimal" value="2000000" required disabled><span aria-hidden="true">₸</span></div><span class="field-hint">Проверяем начальную цену в каталоге.</span></div>
+          <div class="optional-heading">Уточните, если важно <span>необязательно</span></div>
+          <div class="optional-grid">
+            <div class="field"><label for="duration">Длительность</label><div class="input-suffix"><input id="duration" name="duration" type="number" min="1" step="1" inputmode="numeric" placeholder="Любая" disabled><span aria-hidden="true">ч</span></div></div>
+            <div class="field"><label for="language">Язык</label><select id="language" name="language" disabled><option value="">Любой</option></select></div>
+          </div>
+          <button class="primary-button" id="search-button" type="submit" disabled><span>Подобрать подрядчиков</span><span aria-hidden="true">↗</span></button>
+          <p class="form-footnote">Только выбранный город.<br>Только кандидаты, прошедшие ваши условия.</p>
+        </form>
+      </aside>
+
+      <section class="results-panel" aria-labelledby="results-title" aria-busy="true">
+        <div class="results-heading"><div><span class="step-label">02 / Ваш выбор</span><h2 id="results-title">Подходящие подрядчики</h2><p id="query-summary" class="query-summary">Готовим каталог для первого подбора…</p></div><span id="result-count" class="result-count" hidden></span></div>
+        <div id="status-line" class="status-line" role="status" aria-live="polite"></div>
+        <div id="error-panel" class="error-panel" role="alert" hidden></div>
+        <div id="result-content" class="result-content"><div class="initial-loader"><span class="spinner" aria-hidden="true"></span><p>Загружаем каталог…</p></div></div>
+        <div id="results-note" class="results-note" hidden><span aria-hidden="true">↳</span><span>Доступность и цены — по каталогу. Итоговые условия нужно уточнить у подрядчика.</span></div>
+        <details id="diagnostics" class="diagnostics" hidden>
+          <summary>Как получилась эта подборка <span aria-hidden="true">+</span></summary>
+          <div id="diagnostic-content" class="diagnostic-content"></div>
+        </details>
+      </section>
+    </div>
+
+    <section class="comparison-section" aria-labelledby="comparison-title">
+      <div class="comparison-intro"><span class="step-label">А если другая дата?</span><h2 id="comparison-title">Один день может изменить выбор.</h2><p>Сравните две даты с условиями из формы.<br>Все остальные параметры остаются одинаковыми.</p></div>
+      <form id="comparison-form" class="comparison-form"><div class="field"><label for="compare-date-a">Первая дата</label><input id="compare-date-a" type="date" required disabled></div><span class="comparison-arrow" aria-hidden="true">→</span><div class="field"><label for="compare-date-b">Вторая дата</label><input id="compare-date-b" type="date" required disabled></div><button type="submit" class="secondary-button" id="compare-button" disabled>Сравнить даты <span aria-hidden="true">↗</span></button></form>
+      <div id="comparison-status" class="comparison-status" role="status" aria-live="polite"></div>
+      <div id="comparison-results" class="comparison-results" hidden></div>
+    </section>
+
+    <section class="how-it-works" aria-label="Как работает подбор"><div><span>01</span><p><strong>Сначала — точные условия</strong>Город, категория, календарь, бюджет и другие ограничения.</p></div><div><span>02</span><p><strong>Потом — смысл описаний</strong>Семантическая близость помогает определить порядок кандидатов.</p></div><div><span>03</span><p><strong>Наконец — конкретные факты</strong>В карточке видно, чем отличается каждый подрядчик.</p></div></section>
+  </main>
+  <footer class="shell site-footer"><span class="footer-brand">событие.</span><p>Демо HackAlem AI · The Good, The Bad and The Ugly</p><span id="runtime-label">Проверяем режим работы</span></footer>
+  <noscript><div class="noscript">Для интерактивного подбора включите JavaScript. Параметры каталога доступны в <a href="/api/meta">API</a>.</div></noscript>
+</body>
+</html>

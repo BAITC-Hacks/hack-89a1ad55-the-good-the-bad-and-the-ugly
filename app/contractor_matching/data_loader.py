@@ -1,32 +1,36 @@
+"""Read the preserved source CSV and the explicitly separate team extension."""
 from __future__ import annotations
 
-import json
-from datetime import date
+import csv
 from pathlib import Path
-from typing import Iterable
 
-from .models import Contractor
+from .models import ContractorProfile
+
+CSV_COLUMNS = (
+    "id", "anon_name", "categories", "city", "city_imputed", "synthetic",
+    "price_from_kzt", "price_imputed", "event_formats", "languages", "max_hours",
+    "busy_dates", "description",
+)
 
 
-def _parse_dates(values: Iterable[str]) -> tuple[date, ...]:
-    return tuple(date.fromisoformat(value) for value in values)
-
-
-def load_contractors(path: str | Path) -> list[Contractor]:
-    raw_contractors = json.loads(Path(path).read_text(encoding="utf-8"))
-    return [
-        Contractor(
-            contractor_id=item["contractor_id"],
-            name=item["name"],
-            city=item["city"],
-            categories=tuple(item["categories"]),
-            event_formats=tuple(item["event_formats"]),
-            price_from_kzt=int(item["price_from_kzt"]),
-            max_guests=int(item["max_guests"]),
-            rating=float(item["rating"]),
-            completed_events=int(item["completed_events"]),
-            skills=tuple(item.get("skills", ())),
-            busy_dates=_parse_dates(item.get("busy_dates", ())),
-        )
-        for item in raw_contractors
-    ]
+def load_profiles(data_dir: Path) -> list[ContractorProfile]:
+    profiles: list[ContractorProfile] = []
+    seen: set[str] = set()
+    for filename, origin in (("original.csv", "source_dataset"), ("team_synthetic.csv", "team_extension")):
+        path = Path(data_dir) / filename
+        with path.open("r", encoding="utf-8-sig", newline="") as stream:
+            reader = csv.DictReader(stream)
+            if reader.fieldnames != list(CSV_COLUMNS):
+                raise ValueError(f"{filename}: unexpected CSV columns")
+            for line, row in enumerate(reader, start=2):
+                try:
+                    profile = ContractorProfile.model_validate({**row, "origin": origin})
+                except ValueError as exc:
+                    raise ValueError(f"{filename}, row {line}: invalid profile: {exc}") from exc
+                if profile.id in seen:
+                    raise ValueError(f"Duplicate profile ID: {profile.id}")
+                if origin == "team_extension" and not profile.synthetic:
+                    raise ValueError(f"Team extension must be marked synthetic: {profile.id}")
+                seen.add(profile.id)
+                profiles.append(profile)
+    return sorted(profiles, key=lambda profile: profile.id)
