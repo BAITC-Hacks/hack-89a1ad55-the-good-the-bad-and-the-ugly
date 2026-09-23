@@ -1,0 +1,1452 @@
+{
+  "schema_version": 2,
+  "curation_version": "reviewed-concepts-2026-09-23-v2",
+  "claim_status": "self-reported dataset content; not independently verified",
+  "profiles": {
+    "HK-39372": {
+      "description_sha256": "dccfb3f618ad89836ac5bee6ab5baff7e8fd5402bc7061a9725970dc26d94ffc",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-39372-f1",
+          "quote": "Ежемесячно реализуем более 1000 заказов.",
+          "claim": "В профиле заявлено более 1000 цветочных заказов в месяц.",
+          "source_field": "description",
+          "tags": [
+            "Флорист"
+          ],
+          "concept_key": "floristry.monthly_volume",
+          "specificity": 3
+        },
+        {
+          "id": "HK-39372-f2",
+          "quote": "Также выполняли оформление для Hotel Akatsuki, Fuyuki Grand и Atelier Sakura.",
+          "claim": "В портфолио указано цветочное оформление для Hotel Akatsuki и Fuyuki Grand.",
+          "source_field": "description",
+          "tags": [
+            "Флорист"
+          ],
+          "concept_key": "floristry.venue_portfolio",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-44733": {
+      "description_sha256": "821c199710682251509a8638f43200ece6e1fd0c1dfc3958c6c7dc67984db013",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-44733-f1",
+          "quote": "Веду как ламповые вечера от 8 человек, так и крупные бизнес форумы на 3000 человек.",
+          "claim": "В опыте указаны камерные вечера от 8 человек и бизнес-форумы на 3000 человек.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.audience_sizes",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-80581": {
+      "description_sha256": "065a6943a68e7c922a9c34e25b27f95dce39fc747c333724242185cea0a495a9",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-80581-f1",
+          "quote": "Резидент клуба импровизаторов Improv Konoha",
+          "claim": "В профиле указано резидентство в клубе импровизаторов Improv Konoha.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.improvisation_club",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-88430": {
+      "description_sha256": "fdcb0efdebfbc8b295f2e055d8d5dffced16fd8e7a4998ff6f5cb6a6925aec5f",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-88430-f1",
+          "quote": "Специализируюсь на проведении корпоративных мероприятий, торжеств и деловых встреч.",
+          "claim": "В описании выделены корпоративные мероприятия и деловые встречи.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.corporate_events",
+          "specificity": 1
+        },
+        {
+          "id": "HK-88430-f2",
+          "quote": "Мой стиль — это сочетание интеллигентного юмора, четкой организации и высокого уровня ответственности.",
+          "claim": "Заявленный стиль сочетает интеллигентный юмор и чёткую организацию программы.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.humour_and_structure",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-58385": {
+      "description_sha256": "3e51b9530939311d23555b4889b5324d29b28684a4fd98d4baa1abac79beb8ec",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-58385-f1",
+          "quote": "двухкратный победитель «Шоу Ghibli Импровизация»",
+          "claim": "В профиле заявлены две победы в «Шоу Ghibli Импровизация».",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.improvisation_awards",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-42352": {
+      "description_sha256": "3b046187f918cf42153cc18a9c9ae3025e4f5ed57b6a566acbc29755e0bf6041",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-42352-f1",
+          "quote": "Опыт ведения свадеб 13 лет",
+          "claim": "В профиле указаны 13 лет ведения свадеб.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.years_experience",
+          "specificity": 3
+        },
+        {
+          "id": "HK-42352-f2",
+          "quote": "Вел свадьбы в Алматы, Москве, Дубае, Бодруме, Ташкенте",
+          "claim": "В свадебном портфолио перечислены Алматы, Москва, Дубай, Бодрум и Ташкент.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.travel_portfolio",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-37181": {
+      "description_sha256": "296885ca0f8b08ffaa97ed421b390bf7a4990051a6ee835245da1af1fecf78ec",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-37181-f1",
+          "quote": "СТАРАЮСЬ К КАЖДОМУ МЕРОПРИЯТИЮ ПОДХОДИТЬ С АВТОРСКИМ СЦЕНАРИЕМ И АДРЕСНЫМИ КОНКУРСАМИ.",
+          "claim": "В описании заявлены авторский сценарий и адресные конкурсы для мероприятия.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.personalised_script",
+          "specificity": 2
+        },
+        {
+          "id": "HK-37181-f2",
+          "quote": "ВЕДУ МЕРОПРИЯТИЯ УЖЕ БОЛЕЕ 15 ЛЕТ.",
+          "claim": "В профиле заявлено более 15 лет ведения мероприятий.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.years_experience",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-26808": {
+      "description_sha256": "b7376b9ca28a8dc0bcf326fd5339ec019e06d421255014242bd048bc5ba7c811",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-26808-f1",
+          "quote": "Сценарист команды КВН Высшей лиги",
+          "claim": "В профиле указан опыт сценариста команды КВН Высшей лиги.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.kvn_scriptwriter",
+          "specificity": 3
+        },
+        {
+          "id": "HK-26808-f2",
+          "quote": "Резидент и основатель клуба «Ghibli Stand-Up»",
+          "claim": "В профиле указано основание клуба «Ghibli Stand-Up».",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.standup_club",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-76268": {
+      "description_sha256": "e91ada224c05ea5e55027f254cdb048f40d943b699e44711a75a531f947695fc",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-76268-f1",
+          "quote": "Люблю живые кадры, настоящие улыбки и моменты, которые невозможно повторить.",
+          "claim": "В свадебной съёмке заявлен акцент на живых улыбках и неповторимых моментах.",
+          "source_field": "description",
+          "tags": [
+            "Фотограф"
+          ],
+          "concept_key": "photo.natural_emotions",
+          "specificity": 1
+        },
+        {
+          "id": "HK-76268-f2",
+          "quote": "Вхожу в топ 5 Алматы по версии AniWed Rating.",
+          "claim": "В профиле заявлено место в топ-5 Алматы по версии AniWed Rating.",
+          "source_field": "description",
+          "tags": [
+            "Фотограф"
+          ],
+          "concept_key": "photo.claimed_rating",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-10990": {
+      "description_sha256": "6c5cfbf18c60d6f559c4099ff70a9c92f7f0c39c7c314119a2263c6aeabd0d91",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-10990-f1",
+          "quote": "WEDDING VIDEOGRAPHER -colorist of the year 2025",
+          "claim": "В профиле свадебного видеографа заявлен титул «colorist of the year 2025».",
+          "source_field": "description",
+          "tags": [
+            "Видеограф"
+          ],
+          "concept_key": "video.colour_award",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-61323": {
+      "description_sha256": "86c4a8777868bb96fb422bd2cd20de90ff4bba3cec7ede30eb6485314640a5e9",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-61323-f1",
+          "quote": "свадебный фотожурнализм, документально — свадебный фотожурнализм",
+          "claim": "Заявленный жанр съёмки — документальный свадебный фотожурнализм.",
+          "source_field": "description",
+          "tags": [
+            "Фотограф"
+          ],
+          "concept_key": "photo.documentary_style",
+          "specificity": 2
+        },
+        {
+          "id": "HK-61323-f2",
+          "quote": "Если у вас нет опыта в сьемках , я научу, как свободно чувствовать себя перед камерой",
+          "claim": "В описании обещана помощь людям без опыта съёмки перед камерой.",
+          "source_field": "description",
+          "tags": [
+            "Фотограф"
+          ],
+          "concept_key": "photo.posing_guidance",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-74914": {
+      "description_sha256": "7dc202647f2e7138338fdec83ad918b33d9ac6365b312e9573fe5fadfeb1ed9b",
+      "quality": "sparse",
+      "facts": [
+        {
+          "id": "HK-74914-f1",
+          "quote": "Я свадебный видеограф из Астаны. Работаю по всему Казахстану.",
+          "claim": "В профиле свадебного видеографа из Астаны заявлена работа по Казахстану.",
+          "source_field": "description",
+          "tags": [
+            "Видеограф"
+          ],
+          "concept_key": "video.travel_coverage",
+          "specificity": 1
+        }
+      ]
+    },
+    "HK-30583": {
+      "description_sha256": "32ac1e03e493ddf26f3b385fef61f3a92cce1f4429f279ea363d4a1144d55bf9",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-30583-f1",
+          "quote": "Франция(fashion week), Италия, Великобритания, Турция, Грузия, ОАЭ, Азербайджан",
+          "claim": "В портфолио указаны съёмки fashion week во Франции и работа в Италии и Великобритании.",
+          "source_field": "description",
+          "tags": [
+            "Фотограф"
+          ],
+          "concept_key": "photo.fashion_week_portfolio",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-97737": {
+      "description_sha256": "1c1904d1143e69d3eb6e865006c2c98626ca8c6721e343ec58e009f170f0bd98",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-97737-f1",
+          "quote": "Работаю как в студии, так и на выездных локациях",
+          "claim": "В профиле указана работа в студии и на выездных локациях.",
+          "source_field": "description",
+          "tags": [
+            "Фотограф"
+          ],
+          "concept_key": "photo.studio_and_location",
+          "specificity": 2
+        },
+        {
+          "id": "HK-97737-f2",
+          "quote": "свадебной и семейной съёмке, love story, мероприятиях и портретных фотосессиях",
+          "claim": "В профиле перечислены свадебные, семейные, портретные съёмки и love story.",
+          "source_field": "description",
+          "tags": [
+            "Фотограф"
+          ],
+          "concept_key": "photo.session_types",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-98562": {
+      "description_sha256": "e14a1c0b30c6a8378cfae503741b23a092529da4df705faf432952c32df971b1",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-98562-f1",
+          "quote": "Сняла более 80 мероприятий",
+          "claim": "В профиле заявлено более 80 снятых мероприятий.",
+          "source_field": "description",
+          "tags": [
+            "Фотограф"
+          ],
+          "concept_key": "photo.event_count",
+          "specificity": 3
+        },
+        {
+          "id": "HK-98562-f2",
+          "quote": "направляю, подсказываю позирование",
+          "claim": "В описании заявлена помощь невестам с позированием.",
+          "source_field": "description",
+          "tags": [
+            "Фотограф"
+          ],
+          "concept_key": "photo.posing_guidance",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-53108": {
+      "description_sha256": "d24d455407b793d07b1a4144dcc350ee03a3cee6c89d7a279f6aa931b33a3d1e",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-53108-f1",
+          "quote": "Париже, Дубае, Москве, Китае",
+          "claim": "В географии съёмок перечислены Париж, Дубай, Москва и Китай.",
+          "source_field": "description",
+          "tags": [
+            "Фотограф"
+          ],
+          "concept_key": "photo.travel_portfolio",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-11484": {
+      "description_sha256": "b31319cdd5ed15a0950a6a198c22e40dc12673a7f09931090831e25957801bed",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-11484-f1",
+          "quote": "собственное производство конструкций",
+          "claim": "В описании студии указано собственное производство декорационных конструкций.",
+          "source_field": "description",
+          "tags": [
+            "Декоратор"
+          ],
+          "concept_key": "decor.inhouse_construction",
+          "specificity": 2
+        },
+        {
+          "id": "HK-11484-f2",
+          "quote": "авторские эскизы перед реализацией",
+          "claim": "В описании предусмотрены авторские эскизы перед реализацией декора.",
+          "source_field": "description",
+          "tags": [
+            "Декоратор"
+          ],
+          "concept_key": "decor.design_sketches",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-97041": {
+      "description_sha256": "350edd4f145023c450f412b132c982dff9e7f7c34132dd7bc8571e5787950ecf",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-97041-f1",
+          "quote": "резидентом школы Ведущих в г.Челябинск , г.Москва",
+          "claim": "В профиле указано резидентство школ ведущих в Челябинске и Москве.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.school_residency",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-60927": {
+      "description_sha256": "6419527bac5578cb245f18f8b7d4744348204688e6a801f35701820659a77e4a",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-60927-f1",
+          "quote": "В основе продукции — немецкий изомальт",
+          "claim": "Для персонализированных леденцов в описании указан немецкий изомальт.",
+          "source_field": "description",
+          "tags": [
+            "Подарки и сувениры"
+          ],
+          "concept_key": "gifts.isomalt_material",
+          "specificity": 2
+        },
+        {
+          "id": "HK-60927-f2",
+          "quote": "Минимальный заказ — от 15 штук.",
+          "claim": "В описании персонализированных леденцов указан заказ от 15 штук.",
+          "source_field": "description",
+          "tags": [
+            "Подарки и сувениры"
+          ],
+          "concept_key": "gifts.minimum_quantity",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-62242": {
+      "description_sha256": "8896280c44bad2148f4dd40c305deaaea2ab6b6f8a8320cdb71869c33a18c7fb",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-62242-f1",
+          "quote": "Юдзи работал в Японии, Италии, Грузии, Дубае, Москве и Казахстане.",
+          "claim": "В географии видеосъёмок указаны Япония, Италия, Грузия, Дубай, Москва и Казахстан.",
+          "source_field": "description",
+          "tags": [
+            "Видеограф"
+          ],
+          "concept_key": "video.travel_portfolio",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-44923": {
+      "description_sha256": "0cc94aa6477b4dad7eec4b15423a011024c4870293c50f2719128d139e44d243",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-44923-f1",
+          "quote": "DJ и современная танцевальная музыка и мультимедийное оборудование",
+          "claim": "В описании программы указаны DJ, танцевальная музыка и мультимедийное оборудование.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.dj_and_multimedia",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-91112": {
+      "description_sha256": "9f9fdd26a64a427249372978dd68f816d05a4c8dfe58585e805ea48dcbf96fa8",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-91112-f1",
+          "quote": "Мои кадры — не про позы, а про состояние.",
+          "claim": "В описании свадебной съёмки заявлен акцент на состоянии пары, а не позировании.",
+          "source_field": "description",
+          "tags": [
+            "Фотограф"
+          ],
+          "concept_key": "photo.natural_emotions",
+          "specificity": 1
+        }
+      ]
+    },
+    "HK-77793": {
+      "description_sha256": "6ea24a20c323cf57e2e47539c7504c3365fcc7d455fed2445d8494e3bb1df448",
+      "quality": "sparse",
+      "facts": [
+        {
+          "id": "HK-77793-f1",
+          "quote": "Ведение на казахском и русском языках",
+          "claim": "В описании церемониймейстера указано ведение на казахском и русском языках.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий церемонии"
+          ],
+          "concept_key": "hosting.multilingual",
+          "specificity": 1
+        }
+      ]
+    },
+    "HK-76335": {
+      "description_sha256": "54ad468b672bce1022e74dea219a9e0f645d24d3fbb569e7a5b314e6851ac1e9",
+      "quality": "sparse",
+      "facts": [
+        {
+          "id": "HK-76335-f1",
+          "quote": "В её кадрах — живые эмоции, естественность и аккуратная эстетика",
+          "claim": "В описании событийной фотографии заявлены естественность и аккуратная эстетика.",
+          "source_field": "description",
+          "tags": [
+            "Фотограф"
+          ],
+          "concept_key": "photo.natural_emotions",
+          "specificity": 1
+        }
+      ]
+    },
+    "HK-20640": {
+      "description_sha256": "d55470139eec108b545835737821524020fc8e8b027c43452bec45565b8e425f",
+      "quality": "sparse",
+      "facts": [
+        {
+          "id": "HK-20640-f1",
+          "quote": "специализирующийся на съёмке событий и частных мероприятий",
+          "claim": "В профиле указана специализация на съёмке событий и частных мероприятий.",
+          "source_field": "description",
+          "tags": [
+            "Фотограф"
+          ],
+          "concept_key": "photo.event_specialisation",
+          "specificity": 1
+        }
+      ]
+    },
+    "HK-16628": {
+      "description_sha256": "cffa6bb92b80196ea024d0cc75407a200eebe5775e377bd99d4f1fb07f450dc3",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-16628-f1",
+          "quote": "Является свадебным и репортажным фотографом",
+          "claim": "В профиле объединены свадебная и репортажная фотография.",
+          "source_field": "description",
+          "tags": [
+            "Фотограф"
+          ],
+          "concept_key": "photo.documentary_style",
+          "specificity": 1
+        }
+      ]
+    },
+    "HK-68220": {
+      "description_sha256": "b458cb50a174428d4aa34d832f6cf50b8b9be115e1ccdbb1f453d66f499da067",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-68220-f1",
+          "quote": "Концерт «Тенгри Саунд» с 30 тыс зрителей.",
+          "claim": "В портфолио указан концерт «Тенгри Саунд» с 30 тысячами зрителей.",
+          "source_field": "description",
+          "tags": [
+            "Фотограф"
+          ],
+          "concept_key": "photo.large_concert_portfolio",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-74147": {
+      "description_sha256": "1ab706f3cede4a4fa956e9803d7ef2621873c22dfbd9ae84bb15df706d93ca4a",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-74147-f1",
+          "quote": "музыкальный дуэт",
+          "claim": "В профиле указан формат музыкального дуэта инструменталистов.",
+          "source_field": "description",
+          "tags": [
+            "Инструменталист"
+          ],
+          "concept_key": "music.duo_lineup",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-35913": {
+      "description_sha256": "e92125906f9c7020bacd35f30dd607b595f4f6ccd83aab49fbd12be483982d73",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-35913-f1",
+          "quote": "более чем 10-летним опытом и более 1000 реализованных съёмок",
+          "claim": "В профиле заявлены более 10 лет опыта и более 1000 съёмок.",
+          "source_field": "description",
+          "tags": [
+            "Фотограф"
+          ],
+          "concept_key": "photo.years_and_shoot_count",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-46450": {
+      "description_sha256": "000c558d5aa8b0ca52b83203889813e71f1afbc5585beef3690ef6b3c8c0871d",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-46450-f1",
+          "quote": "Trio — welcome-зоны и камерные вечера (контрабас-вокал + гитара + саксофон / домбра).",
+          "claim": "Для welcome-зон описано трио: контрабас-вокал, гитара и саксофон либо домбра.",
+          "source_field": "description",
+          "tags": [
+            "Инструменталист"
+          ],
+          "concept_key": "music.trio_lineup",
+          "specificity": 3
+        },
+        {
+          "id": "HK-46450-f2",
+          "quote": "Quintet — сценический формат с живыми барабанами",
+          "claim": "В описании есть сценический квинтет с живыми барабанами.",
+          "source_field": "description",
+          "tags": [
+            "Инструменталист"
+          ],
+          "concept_key": "music.quintet_lineup",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-25279": {
+      "description_sha256": "bfdbd353263a740c1b95ef992fccc5b33abe1aa793694a2719c8fb43a355b1bf",
+      "quality": "sparse",
+      "facts": [
+        {
+          "id": "HK-25279-f1",
+          "quote": "звуком, энергией и атмосферой, которую создаём на сцене",
+          "claim": "В описании лайв-бэнда заявлен акцент на сценическом звуке и энергии.",
+          "source_field": "description",
+          "tags": [
+            "Лайв-бэнд"
+          ],
+          "concept_key": "music.stage_energy",
+          "specificity": 1
+        }
+      ]
+    },
+    "HK-92824": {
+      "description_sha256": "524b9e2ff9483d103710d972de1cf3980ea9e2095b8ad24fdf3624b14f1486ee",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-92824-f1",
+          "quote": "Авторский проект Ичиго и Рукии",
+          "claim": "В описании ансамбля указан авторский проект Ичиго и Рукии.",
+          "source_field": "description",
+          "tags": [
+            "Национальный ансамбль",
+            "Танцевальный коллектив",
+            "Шоу-программа"
+          ],
+          "concept_key": "music.named_author_project",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-36965": {
+      "description_sha256": "73efc9f51245227e55d2c3b61de0b08df72f9b5fdc5a7b10cb14c156e9bd2ad2",
+      "quality": "sparse",
+      "facts": [
+        {
+          "id": "HK-36965-f1",
+          "quote": "Прославляем казахскую песню на весь мир",
+          "claim": "В описании ансамбля выделена казахская песня.",
+          "source_field": "description",
+          "tags": [
+            "Национальный ансамбль",
+            "Танцевальный коллектив",
+            "Шоу-программа"
+          ],
+          "concept_key": "music.kazakh_repertoire",
+          "specificity": 1
+        }
+      ]
+    },
+    "HK-39301": {
+      "description_sha256": "149bb1cee8d08aa53d46bd6f5a45b8c9265d6a7f93756eaebd82cdd69467cfd5",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-39301-f1",
+          "quote": "впервые выступивший перед главой государства",
+          "claim": "В профиле ансамбля заявлено выступление перед главой государства.",
+          "source_field": "description",
+          "tags": [
+            "Национальный ансамбль",
+            "Танцевальный коллектив",
+            "Шоу-программа"
+          ],
+          "concept_key": "music.state_head_performance",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-45928": {
+      "description_sha256": "08e058b9d7ed68a5dfdd19b72bddaccc8390d219319b8ff9622b35a7dfe651f1",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-45928-f1",
+          "quote": "Формат съёмки: full day",
+          "claim": "В описании видеографа указан формат съёмки full day.",
+          "source_field": "description",
+          "tags": [
+            "Видеограф"
+          ],
+          "concept_key": "video.full_day",
+          "specificity": 2
+        },
+        {
+          "id": "HK-45928-f2",
+          "quote": "свадебной, семейной и рекламной съёмке",
+          "claim": "В профиле объединены свадебная, семейная и рекламная видеосъёмка.",
+          "source_field": "description",
+          "tags": [
+            "Видеограф"
+          ],
+          "concept_key": "video.session_types",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-83709": {
+      "description_sha256": "4c1cdff66a177dc0bbfc11c58726be1a6d006b876dfdc9b63dc02bb21210f9d3",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-83709-f1",
+          "quote": "4 вокалиста, струнный квартет, духовой брасс, перкуссионист, клавишник, барабанщик, гитарист и бас-гитарист",
+          "claim": "В составе указаны 4 вокалиста, струнный квартет, духовой брасс, клавишник и ритм-секция.",
+          "source_field": "description",
+          "tags": [
+            "Лайв-бэнд"
+          ],
+          "concept_key": "music.orchestra_lineup",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-23752": {
+      "description_sha256": "c117da95f3b5e8f7d9a3ae52cca0a5e8510e1263503c48a229007bc24240b90b",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-23752-f1",
+          "quote": "два вокалиста 🎤 вокалистка 🥁 барабанщик 🎸 бас-гитарист 🎸 соло-гитарист 🎺 труба 🎷 саксофон 🎵 тромбон",
+          "claim": "В составе указаны два вокалиста и вокалистка, труба, саксофон, тромбон и ритм-секция.",
+          "source_field": "description",
+          "tags": [
+            "Лайв-бэнд"
+          ],
+          "concept_key": "music.brass_lineup",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-31819": {
+      "description_sha256": "a49c955ef414e43ab58598863648f833ceeccc4c811ea796257f76c0259f1a48",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-31819-f1",
+          "quote": "как на больших концертных площадках и open-air’ах, так и в маленьких уютных клубах",
+          "claim": "В описании группы заявлены выступления на open-air-площадках и в небольших клубах.",
+          "source_field": "description",
+          "tags": [
+            "Лайв-бэнд"
+          ],
+          "concept_key": "music.stage_sizes",
+          "specificity": 2
+        },
+        {
+          "id": "HK-31819-f2",
+          "quote": "струнный квартет (4 музыканта) 🔉звукорежиссёр",
+          "claim": "В большом составе группы указаны струнный квартет и звукорежиссёр.",
+          "source_field": "description",
+          "tags": [
+            "Лайв-бэнд"
+          ],
+          "concept_key": "music.quartet_and_sound_engineer",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-57480": {
+      "description_sha256": "f4ca7c01cef7b3445aa0f8bfd7c07b8653ce7aabbc940c2426d795c732a7a7b7",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-57480-f1",
+          "quote": "хореографией и активным взаимодействием с публикой",
+          "claim": "В описании лайв-бэнда музыка объединена с хореографией и взаимодействием с публикой.",
+          "source_field": "description",
+          "tags": [
+            "Лайв-бэнд"
+          ],
+          "concept_key": "music.choreography",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-35215": {
+      "description_sha256": "a7e4582b5d29398e8d72d27b8387f64ad106c5115e7726a0acb05673cc55fff4",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-35215-f1",
+          "quote": "Работает на казахском, русском и английском языках.",
+          "claim": "В описании указано ведение на казахском, русском и английском языках.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.multilingual",
+          "specificity": 1
+        },
+        {
+          "id": "HK-35215-f2",
+          "quote": "обряд первых шагов, праздник в честь новорождённого",
+          "claim": "В опыте указаны обряд первых шагов и праздник в честь новорождённого.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.family_rituals",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-77838": {
+      "description_sha256": "8a24fa6dbd4f02cb7cb84dc7b4b700592701e74f5de63df044682977c8ca1b6e",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-77838-f1",
+          "quote": "солист этно-рок группы «Тенгри Rock»",
+          "claim": "В профиле указано участие солистом в этно-рок группе «Тенгри Rock».",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.ethno_rock_soloist",
+          "specificity": 3
+        },
+        {
+          "id": "HK-77838-f2",
+          "quote": "педагог по актёрскому мастерству театральной академии искусств",
+          "claim": "В профиле указан опыт преподавания актёрского мастерства в театральной академии.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.acting_teacher",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-72938": {
+      "description_sha256": "56cd56af1e4d450c9add34a1554a453641c3618b90565fb96a727a8e28b3038b",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-72938-f1",
+          "quote": "участник КВН команды «Ghibli Микс» — Высшая лига",
+          "claim": "В профиле указано участие в команде КВН «Ghibli Микс» Высшей лиги.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.kvn_performer",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-27222": {
+      "description_sha256": "499d74a2c7274cd9393a6e64578e5b896274133a1cc3f26174d1b0a3fb9aa5f4",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-27222-f1",
+          "quote": "радиостанциях Hikari FM, Yume FM",
+          "claim": "В опыте ведущего указана работа на радиостанциях Hikari FM и Yume FM.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.radio_portfolio",
+          "specificity": 3
+        },
+        {
+          "id": "HK-27222-f2",
+          "quote": "опытом более 12 лет",
+          "claim": "В профиле двуязычного ведущего заявлено более 12 лет опыта.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.years_experience",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-75012": {
+      "description_sha256": "72240b2284ca95e228e6a7231e920078436e0199d1ba47fb25ddc32a2a608cf3",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-75012-f1",
+          "quote": "участник медиапрограмм Formula 1",
+          "claim": "В профиле заявлено участие в медиапрограммах Formula 1.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.formula_one_media",
+          "specificity": 3
+        },
+        {
+          "id": "HK-75012-f2",
+          "quote": "ведёт мероприятия Fortune Sekai, технологические форумы, концерты",
+          "claim": "В опыте указаны мероприятия Fortune Sekai, технологические форумы и концерты.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.technology_events",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-29829": {
+      "description_sha256": "3467e971c3bbdc5d6286bbb843cc3ffccc110a7d25f79bfd1e7775b39b672409",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-29829-f1",
+          "quote": "Без долгих речей и наставлений на ивентах. Только развлечения и танцы.",
+          "claim": "Заявленный подход — развлечения и танцы без долгих речей и наставлений.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий"
+          ],
+          "concept_key": "hosting.dancing_without_speeches",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-35846": {
+      "description_sha256": "a8f9d885afe50e8d29e715a35d45d9a27d54f2ec3a78e3caf2cbd21d88c64f88",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-35846-f1",
+          "quote": "Световые и пиксельные шоу; Интерактивные фото/видеозоны.",
+          "claim": "В описании команды объединены световые и пиксельные шоу с интерактивными фото- и видеозонами.",
+          "source_field": "description",
+          "tags": [
+            "Фото и видеобудки",
+            "Шоу-программа"
+          ],
+          "concept_key": "show.light_pixel_and_media",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-64395": {
+      "description_sha256": "bb70e527e4fb2e25445b37effe56f3b8a26972c15a1d222765944c708267f171",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-64395-f1",
+          "quote": "уютные террасы и эффектные закаты",
+          "claim": "В описании панорамной площадки выделены террасы и виды на закаты.",
+          "source_field": "description",
+          "tags": [
+            "Банкетный зал",
+            "Загородная площадка",
+            "Ресторан"
+          ],
+          "concept_key": "venue.terraces_sunset",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-72785": {
+      "description_sha256": "e4a7d2631a7544c1823cc91c36305a7275b90d7b16d6f774408426734576f16c",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-72785-f1",
+          "quote": "расположенный в башне Sakura Tower",
+          "claim": "В описании отеля указано расположение в башне Sakura Tower.",
+          "source_field": "description",
+          "tags": [
+            "Банкетный зал",
+            "Отель",
+            "Ресторан"
+          ],
+          "concept_key": "venue.tower_location",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-99701": {
+      "description_sha256": "fdda35a1322e24163681c68d2535b46e0d8b46e946bb8b0a42e29fb024f7d2fe",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-99701-f1",
+          "quote": "просторными зелёными полями",
+          "claim": "В описании гольф-курорта с рестораном выделены просторные зелёные поля.",
+          "source_field": "description",
+          "tags": [
+            "Банкетный зал",
+            "Загородная площадка",
+            "Ресторан"
+          ],
+          "concept_key": "venue.golf_fields",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-58236": {
+      "description_sha256": "88ce08c46acee5265999ede86b978d57ca49a9d06aac692327ec241cbdd0d189",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-58236-f1",
+          "quote": "Интерьер вдохновлён традиционной юртой и украшен национальными мотивами",
+          "claim": "Интерьер ресторана описан через традиционную юрту и национальные мотивы.",
+          "source_field": "description",
+          "tags": [
+            "Банкетный зал",
+            "Загородная площадка",
+            "Ресторан"
+          ],
+          "concept_key": "venue.yurt_interior",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-50695": {
+      "description_sha256": "060f30706ebcdcf60f9aea86f6b6ff84e82596fc938366e77f653cc4b8c1bc83",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-50695-f1",
+          "quote": "ресторан итальянской и средиземноморской кухни",
+          "claim": "В описании ресторана указаны итальянская и средиземноморская кухни.",
+          "source_field": "description",
+          "tags": [
+            "Банкетный зал",
+            "Ресторан"
+          ],
+          "concept_key": "venue.italian_mediterranean_cuisine",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-69010": {
+      "description_sha256": "90b80753dbb48f18d6ed87408f94845681f0dbc095d6b54b0adad3513857eca1",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-69010-f1",
+          "quote": "европейско-азиатской кухней",
+          "claim": "В описании ресторана при гольф-клубе указана европейско-азиатская кухня.",
+          "source_field": "description",
+          "tags": [
+            "Банкетный зал",
+            "Загородная площадка",
+            "Ресторан"
+          ],
+          "concept_key": "venue.european_asian_cuisine",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-19103": {
+      "description_sha256": "8a4ea9627aded352947cc29bd7ffc1726d1439073432231a55d9e7b1f4c4e176",
+      "quality": "sparse",
+      "facts": [
+        {
+          "id": "HK-19103-f1",
+          "quote": "духовная, энергичная команда джигитов",
+          "claim": "В описании творческого коллектива указан состав из джигитов.",
+          "source_field": "description",
+          "tags": [
+            "Национальный ансамбль",
+            "Танцевальный коллектив",
+            "Шоу-программа"
+          ],
+          "concept_key": "show.dzhigit_lineup",
+          "specificity": 1
+        }
+      ]
+    },
+    "HK-90001": {
+      "description_sha256": "a240d43a45a852f6ec08e89b1ea57cb6b188f85cfa4fb578cf5128053b40cad1",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-90001-f1",
+          "quote": "сезонными и привозными цветами",
+          "claim": "В свадебной флористике указана работа с сезонными и привозными цветами.",
+          "source_field": "description",
+          "tags": [
+            "Флорист"
+          ],
+          "concept_key": "floristry.seasonal_imported_flowers",
+          "specificity": 2
+        },
+        {
+          "id": "HK-90001-f2",
+          "quote": "от букета невесты до оформления стола молодожёнов",
+          "claim": "В описании флористики перечислены букет невесты и оформление стола молодожёнов.",
+          "source_field": "description",
+          "tags": [
+            "Флорист"
+          ],
+          "concept_key": "floristry.bouquet_and_couple_table",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-90002": {
+      "description_sha256": "80743351b78355f303361f82745a4d9837b0b75d0cbb5d50985937a55561c61b",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-90002-f1",
+          "quote": "welcome-зоны, президиумы, фотозоны",
+          "claim": "В описании флористики выделены welcome-зоны, президиумы и фотозоны.",
+          "source_field": "description",
+          "tags": [
+            "Флорист"
+          ],
+          "concept_key": "floristry.welcome_presidium_photozone",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-90003": {
+      "description_sha256": "a09d70ff313ce3a6ab2bd0c1a28634301cf760ff975e1a7cae692750afd96652",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-90003-f1",
+          "quote": "неоновые вывески, шар-гирлянды, тканевый декор потолка",
+          "claim": "В декоре перечислены неоновые вывески, шар-гирлянды и тканевое оформление потолка.",
+          "source_field": "description",
+          "tags": [
+            "Декоратор"
+          ],
+          "concept_key": "decor.neon_balloons_textile",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-90004": {
+      "description_sha256": "0281af1f1ed89fa7c7e15ad2ad0125714985432b068a350a7ba8a711cdd6bd35",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-90004-f1",
+          "quote": "подиумы, арки, фотозоны на металлокаркасе",
+          "claim": "В описании сценографии перечислены подиумы, арки и фотозоны на металлокаркасе.",
+          "source_field": "description",
+          "tags": [
+            "Декоратор"
+          ],
+          "concept_key": "decor.metal_frame_stage",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-90005": {
+      "description_sha256": "363062bf0c9c20fa5e01501b657e527b807b042a9c2b672b7274da39c8a9c511",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-90005-f1",
+          "quote": "карточки рассадки, welcome-боксы, сладости с индивидуальным дизайном",
+          "claim": "В подарочных наборах перечислены карточки рассадки, welcome-боксы и сладости с индивидуальным дизайном.",
+          "source_field": "description",
+          "tags": [
+            "Подарки и сувениры"
+          ],
+          "concept_key": "gifts.seating_welcome_sweets",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-90006": {
+      "description_sha256": "0aff0ca192344bd95d5d6830236b90be49ef963e4bfae18b1011222b056a14a7",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-90006-f1",
+          "quote": "фотомагниты, значки, блокноты с логотипом компании",
+          "claim": "В корпоративном мерче перечислены фотомагниты, значки и блокноты с логотипом компании.",
+          "source_field": "description",
+          "tags": [
+            "Подарки и сувениры"
+          ],
+          "concept_key": "gifts.corporate_merch",
+          "specificity": 2
+        },
+        {
+          "id": "HK-90006-f2",
+          "quote": "Минимальный тираж от 20 штук.",
+          "claim": "В описании брендированных сувениров указан минимальный тираж от 20 штук.",
+          "source_field": "description",
+          "tags": [
+            "Подарки и сувениры"
+          ],
+          "concept_key": "gifts.minimum_quantity",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-90007": {
+      "description_sha256": "e8f2a77c34bbbf1170205c0bd2ef96471e35fdb20d551920973a6e7fc8c9ee19",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-90007-f1",
+          "quote": "каждая церемония собирается индивидуально под историю молодожёнов",
+          "claim": "В описании церемония строится вокруг истории молодожёнов.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий церемонии"
+          ],
+          "concept_key": "ceremony.couple_story",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-90008": {
+      "description_sha256": "0ccaaf818fe384d5e767f2a266d6eddd9bc3cc91aa3884b39c69974f1f950758",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-90008-f1",
+          "quote": "прожить церемонию без спешки и лишнего пафоса",
+          "claim": "В описании регистрации брака заявлена спокойная подача без спешки и пафоса.",
+          "source_field": "description",
+          "tags": [
+            "Ведущий церемонии"
+          ],
+          "concept_key": "ceremony.calm_delivery",
+          "specificity": 1
+        }
+      ]
+    },
+    "HK-90009": {
+      "description_sha256": "be6d20fbc74218540389282c4cc42590ffbc55c7c8f1c97365a2ccaba93daba6",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-90009-f1",
+          "quote": "мгновенной печатью снимков и брендированной рамкой",
+          "claim": "В описании фотобудки указаны мгновенная печать снимков и брендированная рамка.",
+          "source_field": "description",
+          "tags": [
+            "Фото и видеобудки"
+          ],
+          "concept_key": "photobooth.instant_print_branded_frame",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-90010": {
+      "description_sha256": "21b958ba5b04bdc8af9129283ad0050f4301d6eee426873ecfe53809a7b02288",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-90010-f1",
+          "quote": "зеркальная фотобудка с сенсорным экраном, анимацией и печатью фото",
+          "claim": "В описании указана зеркальная фотобудка с сенсорным экраном, анимацией и печатью фото.",
+          "source_field": "description",
+          "tags": [
+            "Фото и видеобудки"
+          ],
+          "concept_key": "photobooth.mirror_touchscreen",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-90011": {
+      "description_sha256": "75ac7ab88cd98dbca236e69f6e3e88236bc686655c12c49dbc5410a07b8a49c6",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-90011-f1",
+          "quote": "вместимость зала до 200 гостей, свой кейтеринг и парковка",
+          "claim": "В описании зала указаны вместимость до 200 гостей, свой кейтеринг и парковка.",
+          "source_field": "description",
+          "tags": [
+            "Банкетный зал",
+            "Отель",
+            "Ресторан"
+          ],
+          "concept_key": "venue.capacity_catering_parking",
+          "specificity": 3
+        }
+      ]
+    },
+    "HK-90012": {
+      "description_sha256": "8bc8c516d600360d0cf895ef99d31da60f2d5c6788d60c8d26f1efebb80226bb",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-90012-f1",
+          "quote": "двумя банкетными залами разной вместимости",
+          "claim": "В описании отеля указаны два банкетных зала разной вместимости.",
+          "source_field": "description",
+          "tags": [
+            "Банкетный зал",
+            "Отель"
+          ],
+          "concept_key": "venue.two_halls",
+          "specificity": 3
+        },
+        {
+          "id": "HK-90012-f2",
+          "quote": "есть техническое оснащение для презентаций",
+          "claim": "В описании отеля предусмотрено техническое оснащение для презентаций.",
+          "source_field": "description",
+          "tags": [
+            "Банкетный зал",
+            "Отель"
+          ],
+          "concept_key": "venue.presentation_equipment",
+          "specificity": 2
+        }
+      ]
+    },
+    "HK-90013": {
+      "description_sha256": "a1a0b714d88c4838b79b0decc6b9e561d1a96997823ecd8ccfbba566e043926d",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "HK-90013-f1",
+          "quote": "Сольные выступления на скрипке и саксофоне",
+          "claim": "В описании указаны сольные выступления на скрипке и саксофоне.",
+          "source_field": "description",
+          "tags": [
+            "Инструменталист"
+          ],
+          "concept_key": "music.violin_saxophone",
+          "specificity": 2
+        }
+      ]
+    },
+    "TEAM-DEC-AST-01": {
+      "description_sha256": "dca5c07e64390ff9f8911349d3927cb566cf67222e1583819d656de72710a2e6",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "TEAM-DEC-AST-01-f1",
+          "quote": "драпировки зоны регистрации, дорожки для столов и мягкий фон для семейных фотографий",
+          "claim": "В вымышленном профиле декора перечислены драпировки регистрации, дорожки для столов и тканевый фон для семейных фото.",
+          "source_field": "description",
+          "tags": [
+            "Декоратор"
+          ],
+          "concept_key": "decor.textile_registration",
+          "specificity": 2
+        }
+      ]
+    },
+    "TEAM-DEC-AST-02": {
+      "description_sha256": "21fc3c8ce5f0c796c75871bfe5656b58434fe34cd45da77f3e9d94e5d7499ecd",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "TEAM-DEC-AST-02-f1",
+          "quote": "сборные панели, стойки регистрации и фон для выступлений",
+          "claim": "В вымышленном профиле декора перечислены сборные панели, стойки регистрации и фон для выступлений.",
+          "source_field": "description",
+          "tags": [
+            "Декоратор"
+          ],
+          "concept_key": "decor.modular_panels",
+          "specificity": 2
+        }
+      ]
+    },
+    "TEAM-DEC-AST-03": {
+      "description_sha256": "da018abaf8a08be7f994e88a0b79562b422da3f2130fc16cf8a5185136c899f0",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "TEAM-DEC-AST-03-f1",
+          "quote": "объёмные бумажные цветы, складные ширмы и настольные композиции",
+          "claim": "В вымышленном профиле декора перечислены объёмные бумажные цветы, складные ширмы и настольные композиции.",
+          "source_field": "description",
+          "tags": [
+            "Декоратор"
+          ],
+          "concept_key": "decor.paper_flowers_screens",
+          "specificity": 2
+        }
+      ]
+    },
+    "TEAM-INS-AST-01": {
+      "description_sha256": "554cf4d04a0bf70f01a19d350af8c537ef4d1331bd065a5692bdc8482c16b916",
+      "quality": "specific",
+      "facts": [
+        {
+          "id": "TEAM-INS-AST-01-f1",
+          "quote": "Скрипичная программа для welcome-зоны",
+          "claim": "В вымышленном профиле указана скрипичная программа для welcome-зоны.",
+          "source_field": "description",
+          "tags": [
+            "Инструменталист"
+          ],
+          "concept_key": "music.violin_welcome",
+          "specificity": 2
+        }
+      ]
+    }
+  }
+}

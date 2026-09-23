@@ -1,0 +1,23 @@
+name: Test product
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - run: python -m pytest
+      - run: docker compose config -q
+      - run: docker build -t hackalem-test .
+      - run: |
+          docker run -d --name hackalem -p 8000:8000 hackalem-test
+          for i in $(seq 1 30); do
+            if curl -fsS http://localhost:8000/health/ready; then exit 0; fi
+            sleep 1
+          done
+          docker logs hackalem
+          exit 1

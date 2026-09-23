@@ -1,0 +1,13 @@
+services:
+  web:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    env_file:
+      - path: .env
+        required: false
+    volumes:
+      - explanation-cache:/app/.cache
+    restart: unless-stopped
+volumes:
+  explanation-cache:
