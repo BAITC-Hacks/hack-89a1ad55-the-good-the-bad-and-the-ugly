@@ -6,7 +6,9 @@ import hashlib
 import json
 from collections import Counter
 from dataclasses import dataclass
+from itertools import product
 from pathlib import Path
+import re
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -23,6 +25,8 @@ class Fact:
     quote: str
     claim: str
     tags: tuple[str, ...]
+    concept_key: str
+    specificity: int
 
 
 class FactsStore:
@@ -31,7 +35,7 @@ class FactsStore:
     def __init__(self, data_dir: Path):
         raw = (data_dir / "facts.json").read_text(encoding="utf-8")
         payload = json.loads(raw)
-        if payload.get("schema_version") != 1 or not isinstance(payload.get("profiles"), dict):
+        if payload.get("schema_version") != 2 or not isinstance(payload.get("profiles"), dict):
             raise ValueError("Unsupported facts schema")
         self.version = sha256_text(raw)
         self.records = payload["profiles"]
@@ -56,44 +60,69 @@ class FactsStore:
                 raise ValueError("Every profile needs a reviewed fact")
             facts = []
             for entry in entries:
-                if set(entry) != {"id", "quote", "claim", "source_field", "tags"}:
+                if set(entry) != {"id", "quote", "claim", "source_field", "tags", "concept_key", "specificity"}:
                     raise ValueError("Invalid fact fields")
                 if entry["source_field"] != "description" or not entry["quote"] or entry["quote"] not in row["description"]:
                     raise ValueError(f"Unsupported source quote for {row['id']}")
                 if not isinstance(entry["claim"], str) or not 1 <= len(entry["claim"].split()) <= 26:
                     raise ValueError("Invalid reviewed claim")
+                if not entry["claim"].endswith(".") or re.search(r"[.!?]", entry["claim"][:-1]):
+                    raise ValueError("A reviewed claim must be exactly one sentence")
+                if not isinstance(entry["concept_key"], str) or not re.fullmatch(r"[a-z][a-z0-9_.]+", entry["concept_key"]):
+                    raise ValueError("Invalid reviewed concept key")
+                if type(entry["specificity"]) is not int or entry["specificity"] not in {1, 2, 3}:
+                    raise ValueError("Invalid reviewed specificity")
                 if not isinstance(entry["tags"], list) or not all(isinstance(tag, str) for tag in entry["tags"]):
                     raise ValueError("Invalid fact tags")
                 if entry["id"] in fact_ids or not entry["id"].startswith(row["id"] + "-f"):
                     raise ValueError("Invalid or duplicate fact ID")
                 fact_ids.add(entry["id"])
-                facts.append(Fact(entry["id"], entry["quote"], entry["claim"], tuple(entry["tags"])))
+                facts.append(Fact(entry["id"], entry["quote"], entry["claim"], tuple(entry["tags"]),
+                                  entry["concept_key"], entry["specificity"]))
             self.by_id[row["id"]] = tuple(facts)
 
     def assign(self, request: SearchRequest, profiles: list[ContractorProfile]) -> dict[str, Fact]:
-        """Choose distinctive claims without changing the input ranking order.
+        """Allocate reviewed, specific concepts without changing ranking.
 
-        Frequency is measured over finalists' available claims, then request
-        relevance, then the reviewed editorial order. No model influences rank.
+        Exhaustive allocation is tiny for <=3 finalists. Semantic keys group
+        close paraphrases; editorial specificity favours concrete details over
+        generic category/language claims. None of this proves competitors lack
+        a trait, nor does it alter their rank or invent missing detail.
         """
         if len(profiles) > 3 or len({p.id for p in profiles}) != len(profiles):
             raise ValueError("Explanations accept at most three distinct finalists")
-        frequency = Counter(f.claim.casefold() for p in profiles for f in self.by_id[p.id])
-        used = set()
-        assigned = {}
         for profile in profiles:
             if sha256_text(profile.description) != self.records[profile.id]["description_sha256"]:
                 raise ValueError(f"Profile changed after facts validation: {profile.id}")
-            ordered = sorted(enumerate(self.by_id[profile.id]), key=lambda pair: (
-                pair[1].claim.casefold() in used,
-                frequency[pair[1].claim.casefold()],
-                -sum(tag in {request.category, request.event_format} for tag in pair[1].tags),
-                pair[0],
-            ))
-            fact = ordered[0][1]
-            assigned[profile.id] = fact
-            used.add(fact.claim.casefold())
-        return assigned
+        if not profiles:
+            return {}
+        frequency = Counter(key for profile in profiles for key in {f.concept_key for f in self.by_id[profile.id]})
+        choices = product(*(tuple(enumerate(self.by_id[p.id])) for p in profiles))
+
+        def allocation_key(choice):
+            facts = [fact for _, fact in choice]
+            return (
+                -len({fact.claim.casefold() for fact in facts}),
+                -sum(fact.specificity for fact in facts),
+                -len({fact.concept_key for fact in facts}),
+                sum(frequency[fact.concept_key] for fact in facts),
+                -sum(tag in {request.category, request.event_format} for fact in facts for tag in fact.tags),
+                tuple(index for index, _ in choice),
+            )
+
+        selected = min(choices, key=allocation_key)
+        return {profile.id: fact for profile, (_, fact) in zip(profiles, selected)}
+
+    def evidence(self, profile: ContractorProfile, fact: Fact, assigned: dict[str, Fact]) -> dict:
+        shared_generic = fact.specificity < 3 and sum(other.concept_key == fact.concept_key for other in assigned.values()) > 1
+        limited = self.records[profile.id]["quality"] == "sparse" or fact.specificity == 1 or shared_generic
+        return {
+            "fact_id": fact.id, "claim": fact.claim, "quote": fact.quote,
+            "source_field": "description", "description_sha256": self.records[profile.id]["description_sha256"],
+            "concept_key": fact.concept_key, "specificity": fact.specificity,
+            "claim_status": "synthetic" if profile.synthetic else "self_reported",
+            "distinction": "limited" if limited else "specific",
+        }
 
     def warnings(self, profile: ContractorProfile, request: SearchRequest) -> list[str]:
         warnings = []

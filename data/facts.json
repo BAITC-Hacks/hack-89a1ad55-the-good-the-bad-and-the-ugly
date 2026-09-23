@@ -1,6 +1,6 @@
 {
-  "schema_version": 1,
-  "curation_version": "reviewed-2026-09-23-v1",
+  "schema_version": 2,
+  "curation_version": "reviewed-concepts-2026-09-23-v2",
   "claim_status": "self-reported dataset content; not independently verified",
   "profiles": {
     "HK-39372": {
@@ -14,7 +14,9 @@
           "source_field": "description",
           "tags": [
             "Флорист"
-          ]
+          ],
+          "concept_key": "floristry.monthly_volume",
+          "specificity": 3
         },
         {
           "id": "HK-39372-f2",
@@ -23,7 +25,9 @@
           "source_field": "description",
           "tags": [
             "Флорист"
-          ]
+          ],
+          "concept_key": "floristry.venue_portfolio",
+          "specificity": 3
         }
       ]
     },
@@ -38,7 +42,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.audience_sizes",
+          "specificity": 3
         }
       ]
     },
@@ -53,7 +59,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.improvisation_club",
+          "specificity": 3
         }
       ]
     },
@@ -68,7 +76,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.corporate_events",
+          "specificity": 1
         },
         {
           "id": "HK-88430-f2",
@@ -77,7 +87,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.humour_and_structure",
+          "specificity": 2
         }
       ]
     },
@@ -92,7 +104,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.improvisation_awards",
+          "specificity": 3
         }
       ]
     },
@@ -107,7 +121,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.years_experience",
+          "specificity": 3
         },
         {
           "id": "HK-42352-f2",
@@ -116,7 +132,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.travel_portfolio",
+          "specificity": 3
         }
       ]
     },
@@ -131,7 +149,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.personalised_script",
+          "specificity": 2
         },
         {
           "id": "HK-37181-f2",
@@ -140,7 +160,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.years_experience",
+          "specificity": 3
         }
       ]
     },
@@ -155,7 +177,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.kvn_scriptwriter",
+          "specificity": 3
         },
         {
           "id": "HK-26808-f2",
@@ -164,7 +188,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.standup_club",
+          "specificity": 3
         }
       ]
     },
@@ -179,7 +205,20 @@
           "source_field": "description",
           "tags": [
             "Фотограф"
-          ]
+          ],
+          "concept_key": "photo.natural_emotions",
+          "specificity": 1
+        },
+        {
+          "id": "HK-76268-f2",
+          "quote": "Вхожу в топ 5 Алматы по версии AniWed Rating.",
+          "claim": "В профиле заявлено место в топ-5 Алматы по версии AniWed Rating.",
+          "source_field": "description",
+          "tags": [
+            "Фотограф"
+          ],
+          "concept_key": "photo.claimed_rating",
+          "specificity": 3
         }
       ]
     },
@@ -194,7 +233,9 @@
           "source_field": "description",
           "tags": [
             "Видеограф"
-          ]
+          ],
+          "concept_key": "video.colour_award",
+          "specificity": 3
         }
       ]
     },
@@ -209,7 +250,9 @@
           "source_field": "description",
           "tags": [
             "Фотограф"
-          ]
+          ],
+          "concept_key": "photo.documentary_style",
+          "specificity": 2
         },
         {
           "id": "HK-61323-f2",
@@ -218,7 +261,9 @@
           "source_field": "description",
           "tags": [
             "Фотограф"
-          ]
+          ],
+          "concept_key": "photo.posing_guidance",
+          "specificity": 2
         }
       ]
     },
@@ -233,7 +278,9 @@
           "source_field": "description",
           "tags": [
             "Видеограф"
-          ]
+          ],
+          "concept_key": "video.travel_coverage",
+          "specificity": 1
         }
       ]
     },
@@ -248,7 +295,9 @@
           "source_field": "description",
           "tags": [
             "Фотограф"
-          ]
+          ],
+          "concept_key": "photo.fashion_week_portfolio",
+          "specificity": 3
         }
       ]
     },
@@ -263,7 +312,9 @@
           "source_field": "description",
           "tags": [
             "Фотограф"
-          ]
+          ],
+          "concept_key": "photo.studio_and_location",
+          "specificity": 2
         },
         {
           "id": "HK-97737-f2",
@@ -272,7 +323,9 @@
           "source_field": "description",
           "tags": [
             "Фотограф"
-          ]
+          ],
+          "concept_key": "photo.session_types",
+          "specificity": 2
         }
       ]
     },
@@ -287,7 +340,9 @@
           "source_field": "description",
           "tags": [
             "Фотограф"
-          ]
+          ],
+          "concept_key": "photo.event_count",
+          "specificity": 3
         },
         {
           "id": "HK-98562-f2",
@@ -296,7 +351,9 @@
           "source_field": "description",
           "tags": [
             "Фотограф"
-          ]
+          ],
+          "concept_key": "photo.posing_guidance",
+          "specificity": 2
         }
       ]
     },
@@ -311,7 +368,9 @@
           "source_field": "description",
           "tags": [
             "Фотограф"
-          ]
+          ],
+          "concept_key": "photo.travel_portfolio",
+          "specificity": 3
         }
       ]
     },
@@ -326,7 +385,9 @@
           "source_field": "description",
           "tags": [
             "Декоратор"
-          ]
+          ],
+          "concept_key": "decor.inhouse_construction",
+          "specificity": 2
         },
         {
           "id": "HK-11484-f2",
@@ -335,7 +396,9 @@
           "source_field": "description",
           "tags": [
             "Декоратор"
-          ]
+          ],
+          "concept_key": "decor.design_sketches",
+          "specificity": 2
         }
       ]
     },
@@ -350,7 +413,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.school_residency",
+          "specificity": 3
         }
       ]
     },
@@ -365,7 +430,9 @@
           "source_field": "description",
           "tags": [
             "Подарки и сувениры"
-          ]
+          ],
+          "concept_key": "gifts.isomalt_material",
+          "specificity": 2
         },
         {
           "id": "HK-60927-f2",
@@ -374,7 +441,9 @@
           "source_field": "description",
           "tags": [
             "Подарки и сувениры"
-          ]
+          ],
+          "concept_key": "gifts.minimum_quantity",
+          "specificity": 3
         }
       ]
     },
@@ -389,7 +458,9 @@
           "source_field": "description",
           "tags": [
             "Видеограф"
-          ]
+          ],
+          "concept_key": "video.travel_portfolio",
+          "specificity": 3
         }
       ]
     },
@@ -404,7 +475,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.dj_and_multimedia",
+          "specificity": 2
         }
       ]
     },
@@ -419,7 +492,9 @@
           "source_field": "description",
           "tags": [
             "Фотограф"
-          ]
+          ],
+          "concept_key": "photo.natural_emotions",
+          "specificity": 1
         }
       ]
     },
@@ -434,7 +509,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий церемонии"
-          ]
+          ],
+          "concept_key": "hosting.multilingual",
+          "specificity": 1
         }
       ]
     },
@@ -449,7 +526,9 @@
           "source_field": "description",
           "tags": [
             "Фотограф"
-          ]
+          ],
+          "concept_key": "photo.natural_emotions",
+          "specificity": 1
         }
       ]
     },
@@ -464,7 +543,9 @@
           "source_field": "description",
           "tags": [
             "Фотограф"
-          ]
+          ],
+          "concept_key": "photo.event_specialisation",
+          "specificity": 1
         }
       ]
     },
@@ -479,7 +560,9 @@
           "source_field": "description",
           "tags": [
             "Фотограф"
-          ]
+          ],
+          "concept_key": "photo.documentary_style",
+          "specificity": 1
         }
       ]
     },
@@ -494,7 +577,9 @@
           "source_field": "description",
           "tags": [
             "Фотограф"
-          ]
+          ],
+          "concept_key": "photo.large_concert_portfolio",
+          "specificity": 3
         }
       ]
     },
@@ -509,7 +594,9 @@
           "source_field": "description",
           "tags": [
             "Инструменталист"
-          ]
+          ],
+          "concept_key": "music.duo_lineup",
+          "specificity": 2
         }
       ]
     },
@@ -524,7 +611,9 @@
           "source_field": "description",
           "tags": [
             "Фотограф"
-          ]
+          ],
+          "concept_key": "photo.years_and_shoot_count",
+          "specificity": 3
         }
       ]
     },
@@ -539,7 +628,9 @@
           "source_field": "description",
           "tags": [
             "Инструменталист"
-          ]
+          ],
+          "concept_key": "music.trio_lineup",
+          "specificity": 3
         },
         {
           "id": "HK-46450-f2",
@@ -548,7 +639,9 @@
           "source_field": "description",
           "tags": [
             "Инструменталист"
-          ]
+          ],
+          "concept_key": "music.quintet_lineup",
+          "specificity": 3
         }
       ]
     },
@@ -563,7 +656,9 @@
           "source_field": "description",
           "tags": [
             "Лайв-бэнд"
-          ]
+          ],
+          "concept_key": "music.stage_energy",
+          "specificity": 1
         }
       ]
     },
@@ -580,7 +675,9 @@
             "Национальный ансамбль",
             "Танцевальный коллектив",
             "Шоу-программа"
-          ]
+          ],
+          "concept_key": "music.named_author_project",
+          "specificity": 3
         }
       ]
     },
@@ -597,7 +694,9 @@
             "Национальный ансамбль",
             "Танцевальный коллектив",
             "Шоу-программа"
-          ]
+          ],
+          "concept_key": "music.kazakh_repertoire",
+          "specificity": 1
         }
       ]
     },
@@ -614,7 +713,9 @@
             "Национальный ансамбль",
             "Танцевальный коллектив",
             "Шоу-программа"
-          ]
+          ],
+          "concept_key": "music.state_head_performance",
+          "specificity": 3
         }
       ]
     },
@@ -629,7 +730,9 @@
           "source_field": "description",
           "tags": [
             "Видеограф"
-          ]
+          ],
+          "concept_key": "video.full_day",
+          "specificity": 2
         },
         {
           "id": "HK-45928-f2",
@@ -638,7 +741,9 @@
           "source_field": "description",
           "tags": [
             "Видеограф"
-          ]
+          ],
+          "concept_key": "video.session_types",
+          "specificity": 2
         }
       ]
     },
@@ -653,7 +758,9 @@
           "source_field": "description",
           "tags": [
             "Лайв-бэнд"
-          ]
+          ],
+          "concept_key": "music.orchestra_lineup",
+          "specificity": 3
         }
       ]
     },
@@ -668,7 +775,9 @@
           "source_field": "description",
           "tags": [
             "Лайв-бэнд"
-          ]
+          ],
+          "concept_key": "music.brass_lineup",
+          "specificity": 3
         }
       ]
     },
@@ -683,7 +792,9 @@
           "source_field": "description",
           "tags": [
             "Лайв-бэнд"
-          ]
+          ],
+          "concept_key": "music.stage_sizes",
+          "specificity": 2
         },
         {
           "id": "HK-31819-f2",
@@ -692,7 +803,9 @@
           "source_field": "description",
           "tags": [
             "Лайв-бэнд"
-          ]
+          ],
+          "concept_key": "music.quartet_and_sound_engineer",
+          "specificity": 3
         }
       ]
     },
@@ -707,7 +820,9 @@
           "source_field": "description",
           "tags": [
             "Лайв-бэнд"
-          ]
+          ],
+          "concept_key": "music.choreography",
+          "specificity": 2
         }
       ]
     },
@@ -722,7 +837,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.multilingual",
+          "specificity": 1
         },
         {
           "id": "HK-35215-f2",
@@ -731,7 +848,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.family_rituals",
+          "specificity": 2
         }
       ]
     },
@@ -746,7 +865,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.ethno_rock_soloist",
+          "specificity": 3
         },
         {
           "id": "HK-77838-f2",
@@ -755,7 +876,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.acting_teacher",
+          "specificity": 2
         }
       ]
     },
@@ -770,7 +893,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.kvn_performer",
+          "specificity": 3
         }
       ]
     },
@@ -785,7 +910,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.radio_portfolio",
+          "specificity": 3
         },
         {
           "id": "HK-27222-f2",
@@ -794,7 +921,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.years_experience",
+          "specificity": 3
         }
       ]
     },
@@ -809,7 +938,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.formula_one_media",
+          "specificity": 3
         },
         {
           "id": "HK-75012-f2",
@@ -818,7 +949,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.technology_events",
+          "specificity": 3
         }
       ]
     },
@@ -833,7 +966,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий"
-          ]
+          ],
+          "concept_key": "hosting.dancing_without_speeches",
+          "specificity": 2
         }
       ]
     },
@@ -849,7 +984,9 @@
           "tags": [
             "Фото и видеобудки",
             "Шоу-программа"
-          ]
+          ],
+          "concept_key": "show.light_pixel_and_media",
+          "specificity": 2
         }
       ]
     },
@@ -866,7 +1003,9 @@
             "Банкетный зал",
             "Загородная площадка",
             "Ресторан"
-          ]
+          ],
+          "concept_key": "venue.terraces_sunset",
+          "specificity": 2
         }
       ]
     },
@@ -883,7 +1022,9 @@
             "Банкетный зал",
             "Отель",
             "Ресторан"
-          ]
+          ],
+          "concept_key": "venue.tower_location",
+          "specificity": 3
         }
       ]
     },
@@ -900,7 +1041,9 @@
             "Банкетный зал",
             "Загородная площадка",
             "Ресторан"
-          ]
+          ],
+          "concept_key": "venue.golf_fields",
+          "specificity": 2
         }
       ]
     },
@@ -917,7 +1060,9 @@
             "Банкетный зал",
             "Загородная площадка",
             "Ресторан"
-          ]
+          ],
+          "concept_key": "venue.yurt_interior",
+          "specificity": 2
         }
       ]
     },
@@ -933,7 +1078,9 @@
           "tags": [
             "Банкетный зал",
             "Ресторан"
-          ]
+          ],
+          "concept_key": "venue.italian_mediterranean_cuisine",
+          "specificity": 2
         }
       ]
     },
@@ -950,7 +1097,9 @@
             "Банкетный зал",
             "Загородная площадка",
             "Ресторан"
-          ]
+          ],
+          "concept_key": "venue.european_asian_cuisine",
+          "specificity": 2
         }
       ]
     },
@@ -967,7 +1116,9 @@
             "Национальный ансамбль",
             "Танцевальный коллектив",
             "Шоу-программа"
-          ]
+          ],
+          "concept_key": "show.dzhigit_lineup",
+          "specificity": 1
         }
       ]
     },
@@ -982,7 +1133,9 @@
           "source_field": "description",
           "tags": [
             "Флорист"
-          ]
+          ],
+          "concept_key": "floristry.seasonal_imported_flowers",
+          "specificity": 2
         },
         {
           "id": "HK-90001-f2",
@@ -991,7 +1144,9 @@
           "source_field": "description",
           "tags": [
             "Флорист"
-          ]
+          ],
+          "concept_key": "floristry.bouquet_and_couple_table",
+          "specificity": 2
         }
       ]
     },
@@ -1006,7 +1161,9 @@
           "source_field": "description",
           "tags": [
             "Флорист"
-          ]
+          ],
+          "concept_key": "floristry.welcome_presidium_photozone",
+          "specificity": 2
         }
       ]
     },
@@ -1021,7 +1178,9 @@
           "source_field": "description",
           "tags": [
             "Декоратор"
-          ]
+          ],
+          "concept_key": "decor.neon_balloons_textile",
+          "specificity": 2
         }
       ]
     },
@@ -1036,7 +1195,9 @@
           "source_field": "description",
           "tags": [
             "Декоратор"
-          ]
+          ],
+          "concept_key": "decor.metal_frame_stage",
+          "specificity": 2
         }
       ]
     },
@@ -1051,7 +1212,9 @@
           "source_field": "description",
           "tags": [
             "Подарки и сувениры"
-          ]
+          ],
+          "concept_key": "gifts.seating_welcome_sweets",
+          "specificity": 2
         }
       ]
     },
@@ -1066,7 +1229,9 @@
           "source_field": "description",
           "tags": [
             "Подарки и сувениры"
-          ]
+          ],
+          "concept_key": "gifts.corporate_merch",
+          "specificity": 2
         },
         {
           "id": "HK-90006-f2",
@@ -1075,7 +1240,9 @@
           "source_field": "description",
           "tags": [
             "Подарки и сувениры"
-          ]
+          ],
+          "concept_key": "gifts.minimum_quantity",
+          "specificity": 3
         }
       ]
     },
@@ -1090,7 +1257,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий церемонии"
-          ]
+          ],
+          "concept_key": "ceremony.couple_story",
+          "specificity": 2
         }
       ]
     },
@@ -1105,7 +1274,9 @@
           "source_field": "description",
           "tags": [
             "Ведущий церемонии"
-          ]
+          ],
+          "concept_key": "ceremony.calm_delivery",
+          "specificity": 1
         }
       ]
     },
@@ -1120,7 +1291,9 @@
           "source_field": "description",
           "tags": [
             "Фото и видеобудки"
-          ]
+          ],
+          "concept_key": "photobooth.instant_print_branded_frame",
+          "specificity": 2
         }
       ]
     },
@@ -1135,7 +1308,9 @@
           "source_field": "description",
           "tags": [
             "Фото и видеобудки"
-          ]
+          ],
+          "concept_key": "photobooth.mirror_touchscreen",
+          "specificity": 2
         }
       ]
     },
@@ -1152,7 +1327,9 @@
             "Банкетный зал",
             "Отель",
             "Ресторан"
-          ]
+          ],
+          "concept_key": "venue.capacity_catering_parking",
+          "specificity": 3
         }
       ]
     },
@@ -1168,7 +1345,9 @@
           "tags": [
             "Банкетный зал",
             "Отель"
-          ]
+          ],
+          "concept_key": "venue.two_halls",
+          "specificity": 3
         },
         {
           "id": "HK-90012-f2",
@@ -1178,7 +1357,9 @@
           "tags": [
             "Банкетный зал",
             "Отель"
-          ]
+          ],
+          "concept_key": "venue.presentation_equipment",
+          "specificity": 2
         }
       ]
     },
@@ -1193,7 +1374,9 @@
           "source_field": "description",
           "tags": [
             "Инструменталист"
-          ]
+          ],
+          "concept_key": "music.violin_saxophone",
+          "specificity": 2
         }
       ]
     },
@@ -1208,7 +1391,9 @@
           "source_field": "description",
           "tags": [
             "Декоратор"
-          ]
+          ],
+          "concept_key": "decor.textile_registration",
+          "specificity": 2
         }
       ]
     },
@@ -1223,7 +1408,9 @@
           "source_field": "description",
           "tags": [
             "Декоратор"
-          ]
+          ],
+          "concept_key": "decor.modular_panels",
+          "specificity": 2
         }
       ]
     },
@@ -1238,7 +1425,9 @@
           "source_field": "description",
           "tags": [
             "Декоратор"
-          ]
+          ],
+          "concept_key": "decor.paper_flowers_screens",
+          "specificity": 2
         }
       ]
     },
@@ -1253,7 +1442,9 @@
           "source_field": "description",
           "tags": [
             "Инструменталист"
-          ]
+          ],
+          "concept_key": "music.violin_welcome",
+          "specificity": 2
         }
       ]
     }

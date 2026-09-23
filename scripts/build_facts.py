@@ -24,7 +24,7 @@ CURATED = {
     "HK-42352": [("Опыт ведения свадеб 13 лет", "В профиле указаны 13 лет ведения свадеб."), ("Вел свадьбы в Алматы, Москве, Дубае, Бодруме, Ташкенте", "В свадебном портфолио перечислены Алматы, Москва, Дубай, Бодрум и Ташкент.")],
     "HK-37181": [("СТАРАЮСЬ К КАЖДОМУ МЕРОПРИЯТИЮ ПОДХОДИТЬ С АВТОРСКИМ СЦЕНАРИЕМ И АДРЕСНЫМИ КОНКУРСАМИ.", "В описании заявлены авторский сценарий и адресные конкурсы для мероприятия."), ("ВЕДУ МЕРОПРИЯТИЯ УЖЕ БОЛЕЕ 15 ЛЕТ.", "В профиле заявлено более 15 лет ведения мероприятий.")],
     "HK-26808": [("Сценарист команды КВН Высшей лиги", "В профиле указан опыт сценариста команды КВН Высшей лиги."), ("Резидент и основатель клуба «Ghibli Stand-Up»", "В профиле указано основание клуба «Ghibli Stand-Up».")],
-    "HK-76268": [("Люблю живые кадры, настоящие улыбки и моменты, которые невозможно повторить.", "В свадебной съёмке заявлен акцент на живых улыбках и неповторимых моментах.")],
+    "HK-76268": [("Люблю живые кадры, настоящие улыбки и моменты, которые невозможно повторить.", "В свадебной съёмке заявлен акцент на живых улыбках и неповторимых моментах."), ("Вхожу в топ 5 Алматы по версии AniWed Rating.", "В профиле заявлено место в топ-5 Алматы по версии AniWed Rating.")],
     "HK-10990": [("WEDDING VIDEOGRAPHER -colorist of the year 2025", "В профиле свадебного видеографа заявлен титул «colorist of the year 2025».")],
     "HK-61323": [("свадебный фотожурнализм, документально — свадебный фотожурнализм", "Заявленный жанр съёмки — документальный свадебный фотожурнализм."), ("Если у вас нет опыта в сьемках , я научу, как свободно чувствовать себя перед камерой", "В описании обещана помощь людям без опыта съёмки перед камерой.")],
     "HK-74914": [("Я свадебный видеограф из Астаны. Работаю по всему Казахстану.", "В профиле свадебного видеографа из Астаны заявлена работа по Казахстану.")],
@@ -90,6 +90,84 @@ CURATED = {
 
 SPARSE = {"HK-76335", "HK-20640", "HK-25279", "HK-36965", "HK-19103", "HK-74914", "HK-77793"}
 
+# Editorial metadata is reviewed with the claims, never inferred by a model.
+# Specificity: 1 = generic style/category/language, 2 = concrete method/service,
+# 3 = named project/place or quantitative detail. It is NOT a quality rating.
+# Shared concept keys deliberately group semantically close paraphrases; a
+# missing concept in another profile is not evidence that it lacks that trait.
+SEMANTICS = {
+    "HK-39372": [("floristry.monthly_volume", 3), ("floristry.venue_portfolio", 3)],
+    "HK-44733": [("hosting.audience_sizes", 3)],
+    "HK-80581": [("hosting.improvisation_club", 3)],
+    "HK-88430": [("hosting.corporate_events", 1), ("hosting.humour_and_structure", 2)],
+    "HK-58385": [("hosting.improvisation_awards", 3)],
+    "HK-42352": [("hosting.years_experience", 3), ("hosting.travel_portfolio", 3)],
+    "HK-37181": [("hosting.personalised_script", 2), ("hosting.years_experience", 3)],
+    "HK-26808": [("hosting.kvn_scriptwriter", 3), ("hosting.standup_club", 3)],
+    "HK-76268": [("photo.natural_emotions", 1), ("photo.claimed_rating", 3)],
+    "HK-10990": [("video.colour_award", 3)],
+    "HK-61323": [("photo.documentary_style", 2), ("photo.posing_guidance", 2)],
+    "HK-74914": [("video.travel_coverage", 1)],
+    "HK-30583": [("photo.fashion_week_portfolio", 3)],
+    "HK-97737": [("photo.studio_and_location", 2), ("photo.session_types", 2)],
+    "HK-98562": [("photo.event_count", 3), ("photo.posing_guidance", 2)],
+    "HK-53108": [("photo.travel_portfolio", 3)],
+    "HK-11484": [("decor.inhouse_construction", 2), ("decor.design_sketches", 2)],
+    "HK-97041": [("hosting.school_residency", 3)],
+    "HK-60927": [("gifts.isomalt_material", 2), ("gifts.minimum_quantity", 3)],
+    "HK-62242": [("video.travel_portfolio", 3)],
+    "HK-44923": [("hosting.dj_and_multimedia", 2)],
+    "HK-91112": [("photo.natural_emotions", 1)],
+    "HK-77793": [("hosting.multilingual", 1)],
+    "HK-76335": [("photo.natural_emotions", 1)],
+    "HK-20640": [("photo.event_specialisation", 1)],
+    "HK-16628": [("photo.documentary_style", 1)],
+    "HK-68220": [("photo.large_concert_portfolio", 3)],
+    "HK-74147": [("music.duo_lineup", 2)],
+    "HK-35913": [("photo.years_and_shoot_count", 3)],
+    "HK-46450": [("music.trio_lineup", 3), ("music.quintet_lineup", 3)],
+    "HK-25279": [("music.stage_energy", 1)],
+    "HK-92824": [("music.named_author_project", 3)],
+    "HK-36965": [("music.kazakh_repertoire", 1)],
+    "HK-39301": [("music.state_head_performance", 3)],
+    "HK-45928": [("video.full_day", 2), ("video.session_types", 2)],
+    "HK-83709": [("music.orchestra_lineup", 3)],
+    "HK-23752": [("music.brass_lineup", 3)],
+    "HK-31819": [("music.stage_sizes", 2), ("music.quartet_and_sound_engineer", 3)],
+    "HK-57480": [("music.choreography", 2)],
+    "HK-35215": [("hosting.multilingual", 1), ("hosting.family_rituals", 2)],
+    "HK-77838": [("hosting.ethno_rock_soloist", 3), ("hosting.acting_teacher", 2)],
+    "HK-72938": [("hosting.kvn_performer", 3)],
+    "HK-27222": [("hosting.radio_portfolio", 3), ("hosting.years_experience", 3)],
+    "HK-75012": [("hosting.formula_one_media", 3), ("hosting.technology_events", 3)],
+    "HK-29829": [("hosting.dancing_without_speeches", 2)],
+    "HK-35846": [("show.light_pixel_and_media", 2)],
+    "HK-64395": [("venue.terraces_sunset", 2)],
+    "HK-72785": [("venue.tower_location", 3)],
+    "HK-99701": [("venue.golf_fields", 2)],
+    "HK-58236": [("venue.yurt_interior", 2)],
+    "HK-50695": [("venue.italian_mediterranean_cuisine", 2)],
+    "HK-69010": [("venue.european_asian_cuisine", 2)],
+    "HK-19103": [("show.dzhigit_lineup", 1)],
+    "HK-90001": [("floristry.seasonal_imported_flowers", 2), ("floristry.bouquet_and_couple_table", 2)],
+    "HK-90002": [("floristry.welcome_presidium_photozone", 2)],
+    "HK-90003": [("decor.neon_balloons_textile", 2)],
+    "HK-90004": [("decor.metal_frame_stage", 2)],
+    "HK-90005": [("gifts.seating_welcome_sweets", 2)],
+    "HK-90006": [("gifts.corporate_merch", 2), ("gifts.minimum_quantity", 3)],
+    "HK-90007": [("ceremony.couple_story", 2)],
+    "HK-90008": [("ceremony.calm_delivery", 1)],
+    "HK-90009": [("photobooth.instant_print_branded_frame", 2)],
+    "HK-90010": [("photobooth.mirror_touchscreen", 2)],
+    "HK-90011": [("venue.capacity_catering_parking", 3)],
+    "HK-90012": [("venue.two_halls", 3), ("venue.presentation_equipment", 2)],
+    "HK-90013": [("music.violin_saxophone", 2)],
+    "TEAM-DEC-AST-01": [("decor.textile_registration", 2)],
+    "TEAM-DEC-AST-02": [("decor.modular_panels", 2)],
+    "TEAM-DEC-AST-03": [("decor.paper_flowers_screens", 2)],
+    "TEAM-INS-AST-01": [("music.violin_welcome", 2)],
+}
+
 
 def build(data_dir: Path) -> dict:
     profiles = []
@@ -101,19 +179,23 @@ def build(data_dir: Path) -> dict:
         contractor_id = profile["id"]
         description = profile["description"]
         facts = []
+        if len(SEMANTICS[contractor_id]) != len(CURATED[contractor_id]):
+            raise ValueError(f"Review semantic metadata for every fact: {contractor_id}")
         for index, (quote, claim) in enumerate(CURATED[contractor_id], 1):
             if quote not in description:
                 raise ValueError(f"Unverifiable quote for {contractor_id}: {quote!r}")
             if len(claim.split()) > 26:
                 raise ValueError(f"Fact too long for {contractor_id}")
+            concept_key, specificity = SEMANTICS[contractor_id][index - 1]
             facts.append({"id": f"{contractor_id}-f{index}", "quote": quote, "claim": claim,
-                          "source_field": "description", "tags": profile["categories"].split("|")})
+                          "source_field": "description", "tags": profile["categories"].split("|"),
+                          "concept_key": concept_key, "specificity": specificity})
         result[contractor_id] = {"description_sha256": hashlib.sha256(description.encode("utf-8")).hexdigest(),
                                  "quality": "sparse" if contractor_id in SPARSE else "specific",
                                  "facts": facts}
-    if set(CURATED) != set(result):
+    if set(CURATED) != set(result) or set(SEMANTICS) != set(result):
         raise ValueError("Curated facts must cover the catalog exactly")
-    return {"schema_version": 1, "curation_version": "reviewed-2026-09-23-v1",
+    return {"schema_version": 2, "curation_version": "reviewed-concepts-2026-09-23-v2",
             "claim_status": "self-reported dataset content; not independently verified",
             "profiles": result}
 

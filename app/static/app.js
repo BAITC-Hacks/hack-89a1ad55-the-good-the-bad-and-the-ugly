@@ -21,6 +21,110 @@ let searchController = null;
 let comparisonSequence = 0;
 let comparisonControllers = [];
 let formRevision = 0;
+let inquirySelection = null;
+let inquiryAttempt = null;
+let inquirySending = false;
+
+function inquiryBrief(card, request) {
+  return ["Обращение в команду сервиса «событие.»", `Профиль: ${card.anon_name} (${card.id})`,
+    `Условия: ${summary(request)}`, `Начальная цена в каталоге: ${price(card.price_from_kzt)}`,
+    "", card.synthetic ? "Учебный синтетический профиль. Реальный заказ недоступен." : "Анонимизированный профиль. Контакт исполнителя должен подтвердить сотрудник сервиса.",
+    "Просьба уточнить доступность, итоговую стоимость, состав услуг и порядок заключения договора.",
+    "Этот файл — подготовленные условия события. Он не отправлен и не подтверждает бронирование."].join("\n");
+}
+
+function openInquiry(card, request) {
+  if (inquirySending) return;
+  inquirySelection = { card, request: { ...request }, brief: inquiryBrief(card, request) };
+  inquiryAttempt = null;
+  const enabled = !card.synthetic && metadata?.inquiries?.enabled === true;
+  $("#inquiry-form").reset();
+  $("#inquiry-fields").disabled = !enabled;
+  $("#inquiry-submit").disabled = !enabled;
+  $("#inquiry-form").hidden = !enabled;
+  $("#inquiry-title").textContent = card.synthetic ? "Пример обращения" : "Обращение в команду";
+  $("#inquiry-brief").textContent = inquirySelection.brief;
+  $("#inquiry-notice").textContent = card.synthetic
+    ? "Это синтетический профиль для демонстрации. Заказать его услуги нельзя; можно скачать пример условий."
+    : enabled
+      ? `Обращение получит команда сервиса через ${metadata.inquiries.channel_label}. Сотрудник проверит возможность заказа и свяжется с вами.`
+      : "Канал команды ещё не подключён. Сейчас можно скачать условия события; отправка и сбор контактов пока недоступны.";
+  $("#inquiry-status").replaceChildren();
+  $("#inquiry-dialog").showModal();
+}
+
+function closeInquiry() {
+  if (inquirySending) return;
+  $("#inquiry-dialog").close();
+  $("#inquiry-form").reset();
+  inquirySelection = null;
+  inquiryAttempt = null;
+}
+
+function showInquiryReceipt(receipt) {
+  const root = $("#inquiry-status");
+  root.replaceChildren(el("p", "", receipt.message), el("p", "", `Номер обращения: ${receipt.id}`));
+  $("#inquiry-fields").disabled = true;
+  $("#inquiry-submit").disabled = true;
+  if (receipt.receipt_token) {
+    const check = el("button", "guidance-button", "Проверить статус");
+    check.type = "button";
+    check.addEventListener("click", async () => {
+      const selected = inquirySelection;
+      check.disabled = true;
+      try {
+        const response = await fetch(`/api/inquiries/${encodeURIComponent(receipt.id)}`, { headers: { Authorization: `Bearer ${receipt.receipt_token}` }, cache: "no-store", signal: AbortSignal.timeout(10000) });
+        if (!response.ok) throw new Error();
+        const updated = await response.json();
+        if (selected !== inquirySelection) return;
+        showInquiryReceipt({ ...updated, receipt_token: receipt.receipt_token });
+      } catch {
+        if (selected !== inquirySelection) return;
+        root.append(el("p", "", "Не удалось проверить статус. Обращение повторно не отправлялось.")); check.disabled = false;
+      }
+    });
+    root.append(check);
+  }
+}
+
+async function submitInquiry(event) {
+  event.preventDefault();
+  if (inquirySending || !inquirySelection || inquirySelection.card.synthetic || !metadata?.inquiries?.enabled) return;
+  if (!inquiryAttempt) {
+    if (!$("#inquiry-form").reportValidity()) return;
+    const values = new FormData($("#inquiry-form"));
+    inquiryAttempt = { key: crypto.randomUUID(), payload: {
+      contractor_id: inquirySelection.card.id, search: inquirySelection.request,
+      name: String(values.get("name") || "").trim(), contact: String(values.get("contact") || "").trim(),
+      message: String(values.get("message") || "").trim(), consent: values.get("consent") === "on",
+    } };
+  }
+  inquirySending = true;
+  $("#inquiry-fields").disabled = true;
+  $("#inquiry-submit").disabled = true;
+  $("#inquiry-close").disabled = true;
+  $("#inquiry-status").textContent = "Сохраняем обращение и проверяем передачу команде…";
+  try {
+    const response = await fetch("/api/inquiries", { method: "POST", headers: { "Content-Type": "application/json", "Idempotency-Key": inquiryAttempt.key }, body: JSON.stringify(inquiryAttempt.payload), signal: AbortSignal.timeout(15000) });
+    const body = await response.json();
+    if (!response.ok) {
+      if (response.status >= 400 && response.status < 500) {
+        inquiryAttempt = null;
+        $("#inquiry-fields").disabled = false;
+      }
+      throw new Error(body.message || "Не удалось принять обращение. Проверьте поля и повторите.");
+    }
+    showInquiryReceipt(body);
+  } catch (error) {
+    $("#inquiry-status").textContent = error.name === "TimeoutError" || error instanceof TypeError
+      ? "Ответ не получен. Повторная попытка с теми же данными проверит сохранённое обращение, не создавая дубликат."
+      : error.message;
+    $("#inquiry-submit").disabled = false;
+  } finally {
+    inquirySending = false;
+    $("#inquiry-close").disabled = false;
+  }
+}
 
 function el(tag, className, text) {
   const node = document.createElement(tag);
@@ -56,7 +160,7 @@ function countWord(number, forms) {
 }
 
 function sourceName(value) {
-  return { astra: "Astra · проверенные факты", fallback_llm: "Резервная LLM · проверенные факты", template: "Объяснение по фактам" }[value] || "Объяснение по фактам";
+  return { astra: "Astra · проверенные факты", openai: `${metadata?.runtime?.explanation_model || "OpenAI"} · проверенные факты`, fallback_llm: "Резервная LLM · проверенные факты", template: "Объяснение по фактам" }[value] || "Объяснение по фактам";
 }
 
 function runtimeName(value) {
@@ -64,6 +168,7 @@ function runtimeName(value) {
   const lower = String(value).toLowerCase();
   if (lower === "template" || lower.includes("template_only")) return "Объяснения по фактам";
   if (lower.includes("astra")) return "Astra с проверкой фактов";
+  if (lower.includes("openai")) return `${metadata?.runtime?.explanation_model || "OpenAI"} с проверкой фактов`;
   if (lower.includes("fallback") || lower.includes("llm")) return "LLM с проверкой фактов";
   return "Объяснения по фактам";
 }
@@ -236,9 +341,38 @@ function contractorCard(card, index, request) {
   add(detailsBody, el("p", "", `Языки: ${languages}. ${hours}`));
   if (Array.isArray(card.categories) && card.categories.length > 1) detailsBody.append(el("p", "", `Категории: ${card.categories.join(", ")}.`));
   detailsBody.append(el("p", "", `Источник: ${card.origin === "team_extension" ? "расширение команды" : "исходный каталог"}. ID: ${card.id}.`));
+  const evidence = card.explanation_evidence;
+  if (evidence?.quote) {
+    detailsBody.append(el("p", "", "Факт из описания профиля:"), el("blockquote", "evidence-quote", evidence.quote));
+    detailsBody.append(el("p", "", card.synthetic ? "Источник — синтетическое описание для демонстрации." : "Это сведения из анкеты, а не независимая проверка опыта подрядчика."));
+  }
   if (Array.isArray(card.warnings)) card.warnings.forEach((warning) => detailsBody.append(el("p", "warning-text", warning)));
   add(details, el("summary", "", "Данные и ограничения"), detailsBody);
-  return add(article, top, explanation, bottom, details);
+  const action = el("button", "inquiry-button", card.synthetic ? "Посмотреть пример обращения" : "Обратиться в команду сервиса");
+  action.type = "button";
+  action.addEventListener("click", () => openInquiry(card, request));
+  return add(article, top, explanation, bottom, details, action);
+}
+
+function renderGuidance(response) {
+  const actions = response.assistant_suggestions || [];
+  if (!actions.length) return;
+  const section = el("section", "assistant-guidance");
+  add(section, el("h3", "", "Что можно изменить"), el("p", "", "Проверили каталог: каждый вариант меняет одно условие. Выберите подходящий — пересчитаем подбор."));
+  actions.forEach((action) => {
+    const item = el("div", "guidance-item");
+    const button = el("button", "guidance-button", action.label);
+    button.type = "button";
+    button.addEventListener("click", () => {
+      applyRequest(action.request);
+      document.querySelectorAll(".preset-button").forEach((preset) => preset.setAttribute("aria-pressed", "false"));
+      statusLine.classList.remove("stale-note");
+      runSearch();
+    });
+    add(item, button, el("p", "", action.explanation));
+    section.append(item);
+  });
+  resultContent.append(section);
 }
 
 function emptyResult(response, request) {
@@ -299,11 +433,13 @@ function renderResponse(response, request) {
     $("#result-count").textContent = `${count} ${countWord(count, ["кандидат", "кандидата", "кандидатов"])}`;
     $("#result-count").hidden = false;
     setStatus(`${response.eligible_count} из ${response.pool_count} прошли условия · показываем ${count}${response.eligible_count > count ? " первых" : ""}`);
+    if (count < 3) resultContent.append(el("p", "result-explanation", response.message));
     $("#results-note").hidden = false;
   } else {
     resultContent.append(emptyResult(response, request));
     setStatus(response.outcome === "NO_CATEGORY_IN_CITY" ? "Пул города и категории пуст" : `Не прошли условия: ${response.pool_count} из ${response.pool_count}`);
   }
+  renderGuidance(response);
   buildDiagnostics(response);
 }
 
@@ -339,6 +475,7 @@ function markResultsStale() {
   if (!lastRequest || resultsPanel.getAttribute("aria-busy") === "true") return;
   setStatus("Условия изменились. Нажмите «Подобрать подрядчиков», чтобы обновить результат.");
   statusLine.classList.add("stale-note");
+  document.querySelectorAll(".guidance-button, .inquiry-button").forEach((button) => { button.disabled = true; });
 }
 
 function markComparisonStale() {
@@ -500,6 +637,15 @@ async function initialize() {
 }
 
 form.addEventListener("submit", (event) => { event.preventDefault(); statusLine.classList.remove("stale-note"); runSearch(); });
+$("#inquiry-close").addEventListener("click", closeInquiry);
+$("#inquiry-dialog").addEventListener("cancel", (event) => { event.preventDefault(); closeInquiry(); });
+$("#inquiry-form").addEventListener("submit", submitInquiry);
+$("#inquiry-download").addEventListener("click", () => {
+  if (!inquirySelection) return;
+  const url = URL.createObjectURL(new Blob([inquirySelection.brief], { type: "text/plain;charset=utf-8" }));
+  const link = el("a"); link.href = url; link.download = `event-brief-${inquirySelection.card.id}.txt`;
+  document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+});
 form.addEventListener("input", () => {
   formRevision += 1;
   document.querySelectorAll(".preset-button").forEach((button) => button.setAttribute("aria-pressed", "false"));

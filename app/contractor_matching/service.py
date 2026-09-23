@@ -7,6 +7,7 @@ from .data_loader import load_profiles
 from .embeddings import FrozenEmbeddings
 from .explainer import Explainer
 from .filters import filter_contractors
+from .guidance import build_guidance
 from .models import SearchRequest
 from .ranking import rank_contractors
 
@@ -35,6 +36,7 @@ class MatchingService:
                 'city_imputed': profile.city_imputed, 'price_imputed': profile.price_imputed,
                 'available_on': request.date, 'languages': sorted(profile.languages),
                 'max_hours': profile.max_hours, 'explanation_source': batch.source_by_id[profile.id],
+                'explanation_evidence': batch.evidence_by_id.get(profile.id, {}),
                 'warnings': batch.warnings_by_id.get(profile.id, []),
                 'score': entry.score, 'score_breakdown': entry.score_breakdown,
             })
@@ -56,6 +58,7 @@ class MatchingService:
         return {
             'outcome': filtered.outcome.value, 'message': message, 'cards': cards, 'stats': stats,
             'pool_count': filtered.pool_count, 'eligible_count': len(filtered.survivors),
+            'assistant_suggestions': build_guidance(self.profiles, request, filtered),
             'diagnostics': {
                 'catalog_version': self.catalog_version, 'embedding_version': self.embeddings.version,
                 'embedding_model': self.embeddings.model, 'rank_mode': self.embeddings.mode,

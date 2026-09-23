@@ -82,6 +82,23 @@
 
     <section class="how-it-works" aria-label="Как работает подбор"><div><span>01</span><p><strong>Сначала — точные условия</strong>Город, категория, календарь, бюджет и другие ограничения.</p></div><div><span>02</span><p><strong>Потом — смысл описаний</strong>Семантическая близость помогает определить порядок кандидатов.</p></div><div><span>03</span><p><strong>Наконец — конкретные факты</strong>В карточке видно, чем отличается каждый подрядчик.</p></div></section>
   </main>
+  <dialog id="inquiry-dialog" aria-labelledby="inquiry-title" aria-describedby="inquiry-notice">
+    <div class="inquiry-heading"><div><span class="step-label">03 / Следующий шаг</span><h2 id="inquiry-title">Обращение в команду</h2></div><button id="inquiry-close" type="button" aria-label="Закрыть обращение">×</button></div>
+    <p id="inquiry-notice" class="inquiry-notice"></p>
+    <pre id="inquiry-brief" class="inquiry-brief"></pre>
+    <button id="inquiry-download" class="guidance-button" type="button">Скачать условия события</button>
+    <form id="inquiry-form">
+      <fieldset id="inquiry-fields">
+        <div class="field"><label for="inquiry-name">Как к вам обращаться</label><input id="inquiry-name" name="name" autocomplete="name" minlength="2" maxlength="80" required></div>
+        <div class="field"><label for="inquiry-contact">Email, телефон или Telegram для ответа</label><input id="inquiry-contact" name="contact" minlength="5" maxlength="160" required placeholder="Например, @username"></div>
+        <div class="field"><label for="inquiry-message">Что ещё важно учесть</label><textarea id="inquiry-message" name="message" maxlength="1000" rows="3" placeholder="Количество гостей, пожелания к программе…"></textarea></div>
+        <label class="consent-row"><input id="inquiry-consent" name="consent" type="checkbox" required><span>Разрешаю передать команде сервиса имя, контакт и условия события для ответа на это обращение.</span></label>
+      </fieldset>
+      <p class="inquiry-privacy">Контакты используются для ответа и хранятся в базе сервиса. Обращение не подтверждает цену, доступность или бронь. Профиль анонимизирован: команда должна отдельно найти и подтвердить исполнителя.</p>
+      <button id="inquiry-submit" class="primary-button" type="submit"><span>Передать обращение команде</span><span aria-hidden="true">↗</span></button>
+    </form>
+    <div id="inquiry-status" class="inquiry-status" role="status" aria-live="polite"></div>
+  </dialog>
   <footer class="shell site-footer"><span class="footer-brand">событие.</span><p>Демо HackAlem AI · The Good, The Bad and The Ugly</p><span id="runtime-label">Проверяем режим работы</span></footer>
   <noscript><div class="noscript">Для интерактивного подбора включите JavaScript. Параметры каталога доступны в <a href="/api/meta">API</a>.</div></noscript>
 </body>

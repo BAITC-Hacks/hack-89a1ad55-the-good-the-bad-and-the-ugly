@@ -26,6 +26,20 @@ def test_config_requires_explicit_protocol_full_url_model_and_key(monkeypatch):
     assert "very-secret-test-key" not in json.dumps(config.public_identity())
 
 
+def test_sol_configuration_keeps_env_compatibility_but_reports_openai(monkeypatch):
+    monkeypatch.setenv("ASTRA_API_PROTOCOL", "openai-chat-completions")
+    monkeypatch.setenv("ASTRA_CHAT_COMPLETIONS_URL", "https://api.openai.com/v1/chat/completions")
+    monkeypatch.setenv("ASTRA_MODEL", "gpt-6-sol")
+    monkeypatch.setenv("ASTRA_API_KEY_1", "dummy-sol-test-secret")
+    config = ProviderConfig.from_env("ASTRA", "astra", 2.5)
+    assert config.name == "openai"
+    assert config.model == "gpt-6-sol"
+    assert "dummy-sol-test-secret" not in repr(config)
+    assert "dummy-sol-test-secret" not in json.dumps(config.public_identity())
+    monkeypatch.setenv("ASTRA_MODEL", "gpt-6-astra")
+    assert ProviderConfig.from_env("ASTRA", "astra", 2.5).name == "astra"
+
+
 @pytest.mark.parametrize("url", ["http://example.test/chat", "https://username:password@example.test/chat", "https://example.test/chat?api_key=key", "not-a-url"])
 def test_config_rejects_insecure_or_credential_bearing_url(monkeypatch, url):
     monkeypatch.setenv("ASTRA_API_PROTOCOL", "openai-chat-completions")
@@ -53,6 +67,52 @@ def test_one_batch_request_rotates_rate_limited_key_without_changing_prompt():
     body = json.loads(requests[1].content)
     assert body["temperature"] == 0
     assert body["response_format"] == {"type": "json_object"}
+    assert "approved_options" not in body["messages"][0]["content"]
+    assert "fact_id" in body["messages"][0]["content"]
+
+
+@pytest.mark.parametrize("url,model,is_reasoning", [
+    ("https://api.openai.com/v1/chat/completions", "gpt-6-astra", True),
+    ("https://api.openai.com/v1/chat/completions", "gpt-4.1-mini", False),
+    ("https://explicit-provider.test/chat", "gpt-6-astra", False),
+])
+def test_openai_astra_payload_uses_documented_reasoning_parameters(url, model, is_reasoning):
+    recorded = []
+
+    def handler(request):
+        recorded.append(json.loads(request.content))
+        return httpx.Response(200, json={"choices": [{"message": {"content": '{"cards":[]}'}}]})
+
+    provider = ChatCompletionsProvider(ProviderConfig("astra", url, model, ("dummy-unit-test-key",), 2.5), httpx.MockTransport(handler))
+    asyncio.run(provider.generate({"cards": []}))
+    body = recorded[0]
+    if is_reasoning:
+        assert body["reasoning_effort"] == "low"
+        assert body["max_completion_tokens"] == 2048
+        assert "temperature" not in body and "max_tokens" not in body
+    else:
+        assert body["temperature"] == 0
+        assert body["max_tokens"] == 700
+        assert "reasoning_effort" not in body and "max_completion_tokens" not in body
+
+
+def test_openai_sol_payload_uses_none_temperature_and_completion_budget():
+    recorded = []
+
+    def handler(request):
+        recorded.append(json.loads(request.content))
+        return httpx.Response(200, json={"choices": [{"message": {"content": '{"cards":[]}'}}]})
+
+    config = ProviderConfig("openai", "https://api.openai.com/v1/chat/completions", "gpt-6-sol", ("dummy-sol-test-secret",), 2.5)
+    provider = ChatCompletionsProvider(config, httpx.MockTransport(handler))
+    asyncio.run(provider.generate({"cards": []}))
+    body = recorded[0]
+    assert body["model"] == "gpt-6-sol"
+    assert body["reasoning_effort"] == "none"
+    assert body["temperature"] == 0
+    assert body["max_completion_tokens"] == 1000
+    assert "max_tokens" not in body
+    assert "dummy-sol-test-secret" not in json.dumps(body)
 
 
 def test_all_key_retries_share_total_timeout():

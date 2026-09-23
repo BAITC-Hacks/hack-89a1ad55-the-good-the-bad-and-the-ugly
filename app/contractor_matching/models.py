@@ -207,9 +207,19 @@ class ContractorCard(BaseModel):
     languages: list[str]
     max_hours: int | None
     explanation_source: str
+    explanation_evidence: dict[str, Any] = Field(default_factory=dict)
     warnings: list[str] = Field(default_factory=list)
     score: float
     score_breakdown: dict[str, float]
+
+
+class AssistantSuggestion(BaseModel):
+    id: str
+    label: str
+    explanation: str
+    request: SearchRequest
+    eligible_count: int = Field(gt=0)
+    changes: dict[str, Any]
 
 
 class SearchResponse(BaseModel):
@@ -219,5 +229,6 @@ class SearchResponse(BaseModel):
     stats: FinalRejectionStats = Field(default_factory=FinalRejectionStats)
     pool_count: int
     eligible_count: int
+    assistant_suggestions: list[AssistantSuggestion] = Field(default_factory=list, max_length=3)
     diagnostics: dict[str, Any]
     elapsed_ms: float
