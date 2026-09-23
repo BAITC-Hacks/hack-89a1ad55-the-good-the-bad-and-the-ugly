@@ -182,6 +182,40 @@ def test_foreign_origin_is_rejected_before_any_inquiry_is_persisted(enabled):
     assert not transport.messages and stored_count(database) == 0
 
 
+def test_host_spoof_cannot_make_foreign_origin_look_local(enabled):
+    client, transport, database = enabled
+    response = post(client, headers={"Host": "untrusted.example", "Origin": "http://untrusted.example"})
+    assert response.status_code == 400
+    assert_private(response)
+    assert not transport.messages and stored_count(database) == 0
+
+
+@pytest.mark.parametrize("path_value", ["app/static/private-inquiries.sqlite3", str(api.STATIC_DIR / "private-inquiries.sqlite3")])
+def test_inquiry_db_cannot_be_placed_in_public_static_directory(tmp_path, monkeypatch, path_value):
+    database = api.STATIC_DIR / "private-inquiries.sqlite3"
+    assert not database.exists()
+    monkeypatch.setenv("INQUIRY_DB_PATH", path_value)
+    with pytest.raises(ValueError, match="outside the public static directory"):
+        api.create_app(DATA, tmp_path / "explanations.sqlite3")
+    assert not database.exists()
+
+
+def test_public_hostname_requires_explicit_configuration(tmp_path, monkeypatch):
+    monkeypatch.setenv("APP_ALLOWED_HOSTS", "demo.example")
+    monkeypatch.setattr(api, "configured_inquiry_transport", lambda *args, **kwargs: None)
+    app = api.create_app(DATA, tmp_path / "explanations.sqlite3", tmp_path / "inquiries.sqlite3")
+    with TestClient(app) as client:
+        assert client.get("/health/ready").status_code == 400
+        assert client.get("/health/ready", headers={"Host": "demo.example"}).status_code == 200
+
+
+@pytest.mark.parametrize("value", ["*", "*.example.org", "", "https://example.org"])
+def test_wildcard_or_invalid_allowed_hosts_are_rejected(value, tmp_path, monkeypatch):
+    monkeypatch.setenv("APP_ALLOWED_HOSTS", value)
+    with pytest.raises(ValueError, match="Invalid APP_ALLOWED_HOSTS"):
+        api.create_app(DATA, tmp_path / "explanations.sqlite3", tmp_path / "inquiries.sqlite3")
+
+
 @pytest.mark.parametrize("streamed", [False, True])
 def test_actual_body_size_is_limited_even_without_content_length(enabled, streamed):
     client, transport, database = enabled

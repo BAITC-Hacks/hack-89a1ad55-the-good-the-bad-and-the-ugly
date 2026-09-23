@@ -3,6 +3,7 @@ from __future__ import annotations
 import asyncio
 from contextlib import asynccontextmanager
 import logging
+import os
 from collections import OrderedDict
 from pathlib import Path
 from time import monotonic
@@ -11,6 +12,7 @@ from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
+from starlette.middleware.trustedhost import TrustedHostMiddleware
 
 from .models import CITIES, CATEGORIES, EVENT_FORMATS, LANGUAGES, DATE_MIN, DATE_MAX, SearchRequest, SearchResponse
 from .presets import PRESETS, COMPARISON
@@ -21,13 +23,29 @@ from .inquiry_delivery import configured_inquiry_transport
 
 ROOT = Path(__file__).resolve().parents[2]
 LOGGER = logging.getLogger('hackalem')
+STATIC_DIR = ROOT / 'app/static'
+
+
+def _allowed_hosts() -> list[str]:
+    raw = os.environ.get('APP_ALLOWED_HOSTS', 'localhost,127.0.0.1,[::1],testserver')
+    hosts = [host.strip() for host in raw.split(',')]
+    if not hosts or any(not host or '*' in host or '/' in host or '@' in host for host in hosts):
+        raise ValueError('Invalid APP_ALLOWED_HOSTS configuration')
+    return hosts
+
+
+def _private_inquiry_db(path: Path) -> Path:
+    path = Path(path)
+    if path.resolve().is_relative_to(STATIC_DIR.resolve()):
+        raise ValueError('INQUIRY_DB_PATH must be outside the public static directory')
+    return path
 
 
 def create_app(data_dir: Path | None = None, cache_path: Path | None = None, inquiry_db_path: Path | None = None) -> FastAPI:
     load_project_env(ROOT)
     data_dir = data_dir or project_env_path('DATA_DIR', 'data', ROOT)
     cache_path = cache_path or project_env_path('CACHE_PATH', '.cache/explanations.sqlite3', ROOT)
-    inquiry_db_path = inquiry_db_path or project_env_path('INQUIRY_DB_PATH', '.cache/inquiries.sqlite3', ROOT)
+    inquiry_db_path = _private_inquiry_db(inquiry_db_path or project_env_path('INQUIRY_DB_PATH', '.cache/inquiries.sqlite3', ROOT))
     inquiry_limits: OrderedDict[str, list[float]] = OrderedDict()
 
     @asynccontextmanager
@@ -142,8 +160,9 @@ def create_app(data_dir: Path | None = None, cache_path: Path | None = None, inq
         except InquiryNotFound:
             return JSONResponse(status_code=404, content={'message': 'Заявка не найдена.'})
 
-    app.mount('/static', StaticFiles(directory=ROOT / 'app/static', check_dir=False), name='static')
-    app.mount('/', StaticFiles(directory=ROOT / 'app/static', html=True, check_dir=False), name='ui')
+    app.add_middleware(TrustedHostMiddleware, allowed_hosts=_allowed_hosts(), www_redirect=False)
+    app.mount('/static', StaticFiles(directory=STATIC_DIR, check_dir=False), name='static')
+    app.mount('/', StaticFiles(directory=STATIC_DIR, html=True, check_dir=False), name='ui')
     return app
 
 
