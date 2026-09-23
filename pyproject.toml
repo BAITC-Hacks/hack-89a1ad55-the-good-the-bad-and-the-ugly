@@ -1,0 +1,11 @@
+[project]
+name = "hackalem-contractors"
+version = "1.0.0"
+description = "Explainable event contractor selection with frozen semantic embeddings."
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+pythonpath = ["app"]
+testpaths = ["tests"]
+addopts = "-q"
+
